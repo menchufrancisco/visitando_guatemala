@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guatemala, departamento por departamento</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gt-app">
+    <div class="gt-header">
+      <div>
+        <h1 class="gt-title">Guatemala, departamento por departamento</h1>
+        <p class="gt-subtitle">
+          Toca un departamento del mapa y marca los sitios que ya conociste.
+          Tu progreso se guarda automáticamente en este navegador.
+        </p>
+      </div>
+      <div class="gt-stat">
+        <div class="gt-stat-num" id="gt-stat-num">0/0</div>
+        <div class="gt-stat-label" id="gt-stat-label">sitios visitados · 0%</div>
+        <div class="gt-bar-track">
+          <div class="gt-bar-fill" id="gt-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-layout">
+      <div class="gt-map-card">
+        <svg id="gt-svg" role="img" aria-label="Mapa de los 22 departamentos de Guatemala"></svg>
+        <div class="gt-legend">
+          <span class="gt-legend-item"><span class="gt-swatch" style="background:#A69B87"></span> Sin visitar</span>
+          <span class="gt-legend-item"><span class="gt-swatch" style="background:#C99A2E"></span> Algunos visitados</span>
+          <span class="gt-legend-item"><span class="gt-swatch" style="background:#1B4332"></span> Departamento completo</span>
+        </div>
+      </div>
+      <div class="gt-panel" id="gt-panel"></div>
+    </div>
+
+    <div class="gt-footer-actions">
+      <button class="gt-reset-btn" id="gt-reset">Reiniciar progreso</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
