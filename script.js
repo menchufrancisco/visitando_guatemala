@@ -13,6 +13,8 @@ const ICONS = {
 
 let visited = new Set();
 let selected = null;
+let detailMap = null;
+const detailMarkers = new Map();
 
 function loadVisited() {
   try {
@@ -114,11 +116,14 @@ function updateHeader() {
 function selectDept(id) {
   selected = id;
   updateMapColors();
-  renderPanel();
+  showDetailView();
 }
 
 function closeDept() {
   selected = null;
+  destroyDetailMap();
+  document.getElementById("gt-main-view").hidden = false;
+  document.getElementById("gt-detail-view").hidden = true;
   updateMapColors();
   renderPanel();
 }
@@ -129,7 +134,15 @@ function toggleSite(siteId) {
   saveVisited();
   updateMapColors();
   updateHeader();
-  renderPanel();
+  if (selected) {
+    const dept = DEPARTAMENTOS.find((item) => item.id === selected);
+    if (dept) {
+      renderDetailSites(dept);
+      updateDetailMarkers();
+    }
+  } else {
+    renderPanel();
+  }
 }
 
 function resetAll() {
@@ -138,7 +151,15 @@ function resetAll() {
   saveVisited();
   updateMapColors();
   updateHeader();
-  renderPanel();
+  if (selected) {
+    const dept = DEPARTAMENTOS.find((item) => item.id === selected);
+    if (dept) {
+      renderDetailSites(dept);
+      updateDetailMarkers();
+    }
+  } else {
+    renderPanel();
+  }
 }
 
 async function loadSites() {
@@ -167,6 +188,104 @@ async function loadSites() {
   } catch (error) {
     console.error("No se pudo cargar sitios_guatemala.json:", error);
   }
+}
+
+function hasValidCoordinates(site) {
+  return Number.isFinite(Number(site.lat)) && Number.isFinite(Number(site.lng))
+    && Number(site.lat) >= -90 && Number(site.lat) <= 90
+    && Number(site.lng) >= -180 && Number(site.lng) <= 180;
+}
+
+function markerIcon(site) {
+  const state = visited.has(site.id) ? " visited" : "";
+  return L.divIcon({
+    className: "gt-leaflet-pin-wrapper",
+    html: `<span class="gt-leaflet-pin${state}" aria-hidden="true"></span>`,
+    iconSize: [22, 30],
+    iconAnchor: [11, 30],
+    popupAnchor: [0, -30],
+  });
+}
+
+function destroyDetailMap() {
+  detailMarkers.clear();
+  if (detailMap) {
+    detailMap.remove();
+    detailMap = null;
+  }
+}
+
+function createDetailMap(dept) {
+  if (!window.L) {
+    console.error("Leaflet no se pudo cargar; no se puede mostrar el mapa de detalle.");
+    return;
+  }
+
+  destroyDetailMap();
+
+  const mappedSites = dept.sites.filter(hasValidCoordinates);
+  const center = mappedSites.length
+    ? [
+        mappedSites.reduce((sum, site) => sum + Number(site.lat), 0) / mappedSites.length,
+        mappedSites.reduce((sum, site) => sum + Number(site.lng), 0) / mappedSites.length,
+      ]
+    : [15.7835, -90.2308];
+  const zoom = mappedSites.length === 0 ? 7 : mappedSites.length === 1 ? 11 : 9;
+
+  detailMap = L.map("gt-leaflet-map").setView(center, zoom);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 19,
+  }).addTo(detailMap);
+
+  mappedSites.forEach((site) => {
+    const marker = L.marker([Number(site.lat), Number(site.lng)], { icon: markerIcon(site) })
+      .addTo(detailMap)
+      .bindPopup(site.name);
+    detailMarkers.set(site.id, marker);
+  });
+}
+
+function updateDetailMarkers() {
+  detailMarkers.forEach((marker, siteId) => {
+    const site = DEPARTAMENTOS.find((dept) => dept.id === selected)?.sites.find((item) => item.id === siteId);
+    if (site) marker.setIcon(markerIcon(site));
+  });
+}
+
+function renderDetailSites(dept) {
+  const { count, total } = deptProgress(dept);
+  document.getElementById("gt-detail-title").textContent = dept.name;
+  document.getElementById("gt-detail-progress").textContent = `${count} de ${total} sitios visitados`;
+
+  const rows = dept.sites.map((site) => {
+    const done = visited.has(site.id);
+    return `<li class="gt-detail-site-row" data-detail-toggle="${site.id}">
+      <span class="gt-checkbox ${done ? "checked" : ""}">${done ? ICONS.check : ""}</span>
+      <span class="gt-site-name ${done ? "done" : ""}">${site.name}</span>
+    </li>`;
+  }).join("");
+
+  document.getElementById("gt-detail-sites").innerHTML = `
+    <div class="gt-detail-sites-head">
+      <h3>Sitios turísticos</h3>
+      <p>Selecciona un sitio para marcarlo como visitado.</p>
+    </div>
+    <ul class="gt-detail-site-list">${rows}</ul>`;
+
+  document.querySelectorAll("[data-detail-toggle]").forEach((row) => {
+    row.addEventListener("click", () => toggleSite(row.getAttribute("data-detail-toggle")));
+  });
+}
+
+function showDetailView() {
+  const dept = DEPARTAMENTOS.find((item) => item.id === selected);
+  if (!dept) return;
+
+  document.getElementById("gt-main-view").hidden = true;
+  document.getElementById("gt-detail-view").hidden = false;
+  renderDetailSites(dept);
+  createDetailMap(dept);
 }
 
 function renderPanel() {
@@ -248,6 +367,7 @@ async function init() {
   renderPanel();
   document.getElementById("gt-reset").innerHTML = `${ICONS.reset} Reiniciar progreso`;
   document.getElementById("gt-reset").addEventListener("click", resetAll);
+  document.getElementById("gt-back-btn").addEventListener("click", closeDept);
 }
 
 document.addEventListener("DOMContentLoaded", init);

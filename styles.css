@@ -123,8 +123,161 @@ html, body {
   align-items: flex-start;
 }
 
+.gt-detail-view[hidden] { display: none; }
+
+.gt-back-btn {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--jade-deep);
+  cursor: pointer;
+  font: 600 14px 'Space Grotesk', sans-serif;
+  margin-bottom: 18px;
+}
+
+.gt-back-btn:hover,
+.gt-back-btn:focus-visible { color: var(--brick); }
+
+.gt-detail-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.gt-detail-kicker {
+  margin: 0 0 4px;
+  color: var(--jade);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gt-detail-title {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+}
+
+.gt-detail-progress {
+  margin: 0;
+  color: rgba(36,31,23,0.62);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.gt-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.gt-leaflet-card,
+.gt-detail-sites {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-strong) 100%);
+  border: 1px solid var(--panel-line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.gt-leaflet-card { padding: 10px; }
+
+#gt-leaflet-map {
+  width: 100%;
+  min-height: 520px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #dce9e0;
+}
+
+.gt-detail-sites {
+  min-height: 520px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding: 18px;
+}
+
+.gt-detail-sites-head {
+  margin-bottom: 12px;
+}
+
+.gt-detail-sites-head h3 {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+}
+
+.gt-detail-sites-head p {
+  margin: 3px 0 0;
+  color: rgba(36,31,23,0.58);
+  font-size: 12px;
+}
+
+.gt-detail-site-list {
+  display: grid;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gt-detail-site-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 9px 7px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.gt-detail-site-row:hover { background: rgba(31, 122, 93, 0.08); }
+
+.gt-detail-site-row .gt-site-name.done {
+  color: rgba(31,42,34,0.48);
+  text-decoration: line-through;
+}
+
+.gt-leaflet-pin-wrapper {
+  background: transparent;
+  border: 0;
+}
+
+.gt-leaflet-pin {
+  display: block;
+  width: 22px;
+  height: 30px;
+  border: 3px solid var(--paper);
+  border-radius: 50% 50% 50% 0;
+  background: var(--brick);
+  box-shadow: 0 2px 7px rgba(31,42,34,0.35);
+  transform: rotate(-45deg);
+}
+
+.gt-leaflet-pin::after {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 4px auto;
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.gt-leaflet-pin.visited { background: var(--jade); }
+
 @media (max-width: 800px) {
   .gt-layout { flex-direction: column; }
+
+  .gt-detail-layout { grid-template-columns: 1fr; }
+  #gt-leaflet-map { min-height: 400px; }
+  .gt-detail-sites { min-height: 0; max-height: none; }
 }
 
 /* ========== MAPA ========== */

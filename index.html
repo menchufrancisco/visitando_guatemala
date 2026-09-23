@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guatemala, departamento por departamento</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
   <div class="gt-app">
@@ -26,7 +27,7 @@
       </div>
     </header>
 
-    <div class="gt-layout">
+    <div class="gt-layout" id="gt-main-view">
       <div class="gt-map-card">
         <svg id="gt-svg" role="img" aria-label="Mapa de los 22 departamentos de Guatemala"></svg>
         <div class="gt-legend">
@@ -39,11 +40,29 @@
       <div class="gt-panel" id="gt-panel"></div>
     </div>
 
+    <section class="gt-detail-view" id="gt-detail-view" aria-label="Detalle del departamento" hidden>
+      <button class="gt-back-btn" id="gt-back-btn" type="button">← Volver al mapa de Guatemala</button>
+      <div class="gt-detail-heading">
+        <div>
+          <p class="gt-detail-kicker">Explora el departamento</p>
+          <h2 class="gt-detail-title" id="gt-detail-title"></h2>
+        </div>
+        <p class="gt-detail-progress" id="gt-detail-progress"></p>
+      </div>
+      <div class="gt-detail-layout">
+        <div class="gt-leaflet-card">
+          <div id="gt-leaflet-map" aria-label="Mapa de sitios turísticos del departamento"></div>
+        </div>
+        <div class="gt-detail-sites" id="gt-detail-sites"></div>
+      </div>
+    </section>
+
     <div class="gt-footer">
       <button class="gt-reset-btn" id="gt-reset">Reiniciar progreso</button>
     </div>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
