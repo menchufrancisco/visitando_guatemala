@@ -144,6 +144,7 @@ function resetAll() {
 function renderPanel() {
   const panel = document.getElementById("gt-panel");
   const dept = DEPARTAMENTOS.find((d) => d.id === selected);
+  const previousListScroll = panel.querySelector(".gt-site-list")?.scrollTop ?? 0;
 
   if (!dept) {
     const rows = DEPARTAMENTOS.map((d) => {
@@ -172,7 +173,10 @@ function renderPanel() {
         <p>Toca cualquier departamento del mapa o de la lista para ver sus sitios y marcar los que ya visitaste.</p>
         <ul class="gt-dept-list">${rows}</ul>
       </div>`;
-      
+
+    const list = panel.querySelector(".gt-dept-list");
+    if (list) list.scrollTop = previousListScroll;
+
     panel.querySelectorAll("[data-select]").forEach((btn) => {
       btn.addEventListener("click", () => selectDept(btn.getAttribute("data-select")));
     });
@@ -197,6 +201,9 @@ function renderPanel() {
       <button class="gt-close-btn" id="gt-close" aria-label="Cerrar">${ICONS.x}</button>
     </div>
     <ul class="gt-site-list">${siteRows}</ul>`;
+
+  const list = panel.querySelector(".gt-site-list");
+  if (list) list.scrollTop = previousListScroll;
 
   document.getElementById("gt-close").addEventListener("click", closeDept);
   panel.querySelectorAll("[data-toggle]").forEach((row) => {
