@@ -99,7 +99,15 @@ function updateMapColors() {
 function updateHeader() {
   const { totalSites, totalVisited, pct } = totalStats();
   document.getElementById("gt-stat-num").textContent = `${totalVisited}/${totalSites}`;
-  document.getElementById("gt-stat-label").textContent = `sitios visitados · ${pct}%`;
+  document.getElementById("gt-stat-label").textContent = "sitios";
+  
+  // Contar departamentos completos
+  const completedDepts = DEPARTAMENTOS.filter(d => {
+    const { count, total } = deptProgress(d);
+    return total > 0 && count === total;
+  }).length;
+  
+  document.getElementById("gt-stat-depts").textContent = `${completedDepts} de 22 departamentos`;
   document.getElementById("gt-bar-fill").style.width = `${pct}%`;
 }
 
@@ -140,25 +148,61 @@ function renderPanel() {
   if (!dept) {
     const rows = DEPARTAMENTOS.map((d) => {
       const { count, total } = deptProgress(d);
-      return `<li><button data-select="${d.id}">
-        <span style="display:flex;align-items:center;">
-          <span class="gt-mini-dot" style="background:${colorFor(d)}"></span>${d.name}
-        </span>
-        <span class="gt-mini-count">${count}/${total}</span>
-      </button></li>`;
+      const pct = total ? Math.round((count / total) * 100) : 0;
+      const color = colorFor(d);
+      return `<li>
+        <button data-select="${d.id}">
+          <span class="gt-mini-dot" style="background:${color}"></span>
+          <div class="gt-dept-info">
+            <div class="gt-dept-name-row">
+              <span class="gt-dept-name-text">${d.name}</span>
+              <span class="gt-mini-count">${count}/${total}</span>
+            </div>
+            <div class="gt-mini-bar">
+              <div class="gt-mini-bar-fill" style="width:${pct}%;background:${color}"></div>
+            </div>
+          </div>
+        </button>
+      </li>`;
     }).join("");
+
     panel.innerHTML = `
       <div class="gt-panel-empty">
-        <div>${ICONS.mapPin}</div>
-        <p>Toca cualquier departamento del mapa —o de esta lista— para ver sus sitios turísticos y marcar los que ya visitaste.</p>
+        <div class="gt-panel-empty-icon">📍</div>
+        <p>Toca cualquier departamento del mapa o de la lista para ver sus sitios y marcar los que ya visitaste.</p>
         <ul class="gt-dept-list">${rows}</ul>
       </div>`;
+      
     panel.querySelectorAll("[data-select]").forEach((btn) => {
       btn.addEventListener("click", () => selectDept(btn.getAttribute("data-select")));
     });
     return;
   }
 
+  const { count, total } = deptProgress(dept);
+  const siteRows = dept.sites.map((s) => {
+    const done = visited.has(s.id);
+    return `<li class="gt-site-row" data-toggle="${s.id}">
+      <span class="gt-checkbox ${done ? "checked" : ""}">${done ? ICONS.check : ""}</span>
+      <span class="gt-site-name ${done ? "done" : ""}">${s.name}</span>
+    </li>`;
+  }).join("");
+
+  panel.innerHTML = `
+    <div class="gt-panel-head">
+      <div>
+        <h2 class="gt-dept-name">${dept.name}</h2>
+        <p class="gt-dept-sub">${count} de ${total} sitios visitados</p>
+      </div>
+      <button class="gt-close-btn" id="gt-close" aria-label="Cerrar">${ICONS.x}</button>
+    </div>
+    <ul class="gt-site-list">${siteRows}</ul>`;
+
+  document.getElementById("gt-close").addEventListener("click", closeDept);
+  panel.querySelectorAll("[data-toggle]").forEach((row) => {
+    row.addEventListener("click", () => toggleSite(row.getAttribute("data-toggle")));
+  });
+}
   const { count, total } = deptProgress(dept);
   const siteRows = dept.sites.map((s) => {
     const done = visited.has(s.id);
