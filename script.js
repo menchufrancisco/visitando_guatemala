@@ -207,6 +207,21 @@ function markerIcon(site) {
   });
 }
 
+function escapeHtml(value) {
+  return String(value).replace(/[&<>'"]/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "'": "&#39;",
+    '"': "&quot;",
+  }[character]));
+}
+
+function googleMapsUrl(site) {
+  const destination = `${Number(site.lat)},${Number(site.lng)}`;
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+}
+
 function destroyDetailMap() {
   detailMarkers.clear();
   if (detailMap) {
@@ -239,9 +254,15 @@ function createDetailMap(dept) {
   }).addTo(detailMap);
 
   mappedSites.forEach((site) => {
+    const popup = `
+      <strong>${escapeHtml(site.name)}</strong>
+      <br>
+      <a href="${googleMapsUrl(site)}" target="_blank" rel="noopener noreferrer">
+        Cómo llegar en Google Maps
+      </a>`;
     const marker = L.marker([Number(site.lat), Number(site.lng)], { icon: markerIcon(site) })
       .addTo(detailMap)
-      .bindPopup(site.name);
+      .bindPopup(popup);
     detailMarkers.set(site.id, marker);
   });
 }
