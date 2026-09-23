@@ -203,30 +203,6 @@ function renderPanel() {
     row.addEventListener("click", () => toggleSite(row.getAttribute("data-toggle")));
   });
 }
-  const { count, total } = deptProgress(dept);
-  const siteRows = dept.sites.map((s) => {
-    const done = visited.has(s.id);
-    return `<li class="gt-site-row" data-toggle="${s.id}">
-      <span class="gt-checkbox ${done ? "checked" : ""}">${done ? ICONS.check : ""}</span>
-      <span class="gt-site-name ${done ? "done" : ""}">${s.name}</span>
-    </li>`;
-  }).join("");
-
-  panel.innerHTML = `
-    <div class="gt-panel-head">
-      <div>
-        <h2 class="gt-dept-name">${dept.name}</h2>
-        <p class="gt-dept-sub">${count} de ${total} sitios visitados</p>
-      </div>
-      <button class="gt-close-btn" id="gt-close" aria-label="Cerrar">${ICONS.x}</button>
-    </div>
-    <ul class="gt-site-list">${siteRows}</ul>`;
-
-  document.getElementById("gt-close").addEventListener("click", closeDept);
-  panel.querySelectorAll("[data-toggle]").forEach((row) => {
-    row.addEventListener("click", () => toggleSite(row.getAttribute("data-toggle")));
-  });
-}
 
 function init() {
   loadVisited();
