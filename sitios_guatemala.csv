@@ -1,0 +1,416 @@
+departamento_id,departamento_nombre,sitio_id,sitio_nombre,latitud,longitud,es_aproximado
+peten,Petén,peten-0,Parque Nacional Tikal,17.2220,-89.6237,NO
+peten,Petén,peten-1,Isla de Flores,16.9295,-89.8932,NO
+peten,Petén,peten-2,Parque Nacional Yaxhá-Nakum-Naranjo,17.0673,-89.3980,NO
+peten,Petén,peten-3,Parque Nacional El Mirador,17.7558,-89.9217,NO
+peten,Petén,peten-4,Cráter Azul,16.4856,-90.1834,NO
+peten,Petén,peten-5,Uaxactún,17.3945,-89.6335,NO
+peten,Petén,peten-6,Estación Biológica Las Guacamayas,17.2185,-90.4150,NO
+peten,Petén,peten-7,Parque Nacional Ceibal,16.5117,-90.0575,NO
+peten,Petén,peten-8,Aguateca,16.3889,-90.2039,NO
+peten,Petén,peten-9,Parque Natural Ixpanpajul,16.8770,-89.8145,NO
+peten,Petén,peten-10,Tayasal,16.9372,-89.8890,NO
+peten,Petén,peten-11,Biotopo El Zotz,17.2204,-89.8647,NO
+peten,Petén,peten-12,Cuevas de Actún Can,16.9087,-89.8837,NO
+peten,Petén,peten-13,San Bartolo,17.5342,-89.4183,NO
+peten,Petén,peten-14,Finca Ixobel,16.3217,-89.4180,NO
+peten,Petén,peten-15,Parque Nacional Laguna del Tigre,17.4833,-90.6833,SI
+peten,Petén,peten-16,Nakum,17.1725,-89.3564,NO
+peten,Petén,peten-17,Río Azul,17.7247,-89.3086,NO
+peten,Petén,peten-18,El Remate,16.9995,-89.7042,NO
+peten,Petén,peten-19,Biotopo Cerro Cahuí,17.0090,-89.7128,NO
+peten,Petén,peten-20,Sitio Arqueológico Ixlú,16.9806,-89.6917,NO
+peten,Petén,peten-21,Sitio Arqueológico Topoxté,17.0436,-89.4219,NO
+peten,Petén,peten-22,Cuevas de Naj Tunich,16.2616,-89.2643,NO
+peten,Petén,peten-23,Sitio Arqueológico Dos Pilas,16.4519,-90.2692,NO
+peten,Petén,peten-24,Sitio Arqueológico Cancuén,15.9972,-89.9239,NO
+peten,Petén,peten-25,Sitio Arqueológico Tamarindito,16.4253,-90.2631,NO
+peten,Petén,peten-26,Laguna de Petexbatún,16.4239,-90.1889,NO
+peten,Petén,peten-27,Sitio Arqueológico Piedras Negras,17.1667,-91.2600,NO
+peten,Petén,peten-28,Parque Nacional Sierra del Lacandón,17.2442,-91.2021,SI
+peten,Petén,peten-29,Sitio Arqueológico La Corona,17.5186,-90.3542,NO
+peten,Petén,peten-30,Sitio Arqueológico El Perú (Waka'),17.2917,-90.3500,NO
+peten,Petén,peten-31,Refugio de Vida Silvestre El Pucté,16.4670,-90.1800,SI
+altaverapaz,Alta Verapaz,altaverapaz-0,Semuc Champey,15.5342,-89.9614,NO
+altaverapaz,Alta Verapaz,altaverapaz-1,Cuevas de Lanquín,15.5721,-89.9772,NO
+altaverapaz,Alta Verapaz,altaverapaz-2,Cuevas de Candelaria,15.8672,-90.2886,NO
+altaverapaz,Alta Verapaz,altaverapaz-3,Parque Nacional Laguna Lachuá,15.9189,-90.6728,NO
+altaverapaz,Alta Verapaz,altaverapaz-4,Orquideario Archila,15.4678,-90.3800,NO
+altaverapaz,Alta Verapaz,altaverapaz-5,Cuevas de Rey Marcos,15.4206,-90.3150,NO
+altaverapaz,Alta Verapaz,altaverapaz-6,Pozo Vivo,15.3942,-90.4703,NO
+altaverapaz,Alta Verapaz,altaverapaz-7,Balneario Las Azufradas,15.4331,-90.3667,NO
+altaverapaz,Alta Verapaz,altaverapaz-8,Finca Rax Tap,15.4719,-90.3750,SI
+altaverapaz,Alta Verapaz,altaverapaz-9,Laguna de Chichoj,15.3922,-90.4858,NO
+altaverapaz,Alta Verapaz,altaverapaz-10,Parque Ecológico Hun Nal Ye,15.6583,-90.3347,NO
+altaverapaz,Alta Verapaz,altaverapaz-11,Cueva de Chitul,15.4633,-90.3400,SI
+altaverapaz,Alta Verapaz,altaverapaz-12,Sitio Arqueológico Chi Ixim,15.3789,-90.3011,NO
+altaverapaz,Alta Verapaz,altaverapaz-13,Eco Centro Holanda,15.4522,-90.3850,NO
+altaverapaz,Alta Verapaz,altaverapaz-14,Las Conchas,15.8239,-89.4447,NO
+altaverapaz,Alta Verapaz,altaverapaz-15,Cuevas Bombil Pek,15.8694,-90.3811,NO
+altaverapaz,Alta Verapaz,altaverapaz-16,Museo Katinamit,15.4708,-90.3708,NO
+altaverapaz,Alta Verapaz,altaverapaz-17,Río Sachichá,15.5317,-90.3200,SI
+altaverapaz,Alta Verapaz,altaverapaz-18,Cueva de los Andinistas,15.4500,-90.3500,SI
+altaverapaz,Alta Verapaz,altaverapaz-19,Cooperativa Chicoj (Tour del Café),15.4361,-90.4583,NO
+altaverapaz,Alta Verapaz,altaverapaz-20,Parque Ecológico Chirrepec,15.4389,-90.3333,NO
+altaverapaz,Alta Verapaz,altaverapaz-21,Balneario El Manantial,15.3850,-90.3200,SI
+altaverapaz,Alta Verapaz,altaverapaz-22,Candelaria Lodge / Camposanto,15.8681,-90.2908,NO
+altaverapaz,Alta Verapaz,altaverapaz-23,Cascada de Chicajau,15.4167,-90.2833,SI
+altaverapaz,Alta Verapaz,altaverapaz-24,Balneario Chijul,15.3889,-90.3111,NO
+altaverapaz,Alta Verapaz,altaverapaz-25,Cuevas de Setzol,15.8167,-90.1000,SI
+altaverapaz,Alta Verapaz,altaverapaz-26,Salto de Balam Ya,15.7500,-90.2500,SI
+bajaverapaz,Baja Verapaz,bajaverapaz-0,Biotopo del Quetzal (Mario Dary Rivera),15.2133,-90.2192,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-1,Salto de Chilascó,15.1167,-90.1167,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-2,Cataratas El Chupadero,15.1056,-90.2833,SI
+bajaverapaz,Baja Verapaz,bajaverapaz-3,Balneario Arroyo Verde,15.0833,-90.2833,SI
+bajaverapaz,Baja Verapaz,bajaverapaz-4,Finca Ranchitos del Quetzal,15.2153,-90.2181,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-5,Iglesia y Convento de San Jerónimo,15.0617,-90.2403,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-6,Museo del Trapiche,15.0622,-90.2411,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-7,Embalse y Presa Chixoy,15.2833,-90.4833,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-8,Rabinal (Centro Cultural),15.1039,-90.4917,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-9,Corredor del Bosque Nuboso,15.2100,-90.2150,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-10,Reserva Natural Ram Tzul,15.2281,-90.2300,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-11,Posada Montaña del Quetzal,15.2144,-90.2175,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-12,Sitio Arqueológico Kajyup,15.1217,-90.4833,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-13,San Miguel Chicaj,15.0944,-90.3958,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-14,Cascada de San Antonio,15.1450,-90.2900,SI
+bajaverapaz,Baja Verapaz,bajaverapaz-15,Cerro de la Cruz de Salamá,15.1089,-90.3167,NO
+bajaverapaz,Baja Verapaz,bajaverapaz-16,Balneario El Estribo,15.0980,-90.3250,SI
+bajaverapaz,Baja Verapaz,bajaverapaz-17,Saqkiyaw,15.1300,-90.3500,SI
+izabal,Izabal,izabal-0,Río Dulce,15.6567,-88.9950,NO
+izabal,Izabal,izabal-1,Castillo de San Felipe de Lara,15.6378,-88.9972,NO
+izabal,Izabal,izabal-2,Playa Blanca,15.8856,-88.7411,NO
+izabal,Izabal,izabal-3,Siete Altares,15.8450,-88.7900,NO
+izabal,Izabal,izabal-4,Parque Arqueológico Quiriguá,15.2692,-89.0417,NO
+izabal,Izabal,izabal-5,El Boquerón,15.5039,-89.1578,NO
+izabal,Izabal,izabal-6,Finca Paraíso,15.5450,-89.3333,NO
+izabal,Izabal,izabal-7,Playa Dorada,15.4761,-89.2611,NO
+izabal,Izabal,izabal-8,Refugio de Vida Silvestre Bocas del Polochic,15.4667,-89.4167,NO
+izabal,Izabal,izabal-9,Livingston (Pueblo Garífuna),15.8289,-88.7508,NO
+izabal,Izabal,izabal-10,Sendero Las Escobas,15.6872,-88.6650,NO
+izabal,Izabal,izabal-11,Punta de Manabique,15.9333,-88.4833,NO
+izabal,Izabal,izabal-12,Lago de Izabal,15.5000,-89.1667,SI
+izabal,Izabal,izabal-13,Chapín Abajo,15.5167,-89.4500,SI
+izabal,Izabal,izabal-14,Parque Municipal Chulaquito,15.4200,-89.0800,SI
+izabal,Izabal,izabal-15,Izabalito,15.3500,-89.0500,SI
+izabal,Izabal,izabal-16,Cueva del Tigre,15.8167,-88.8500,SI
+izabal,Izabal,izabal-17,Playa Quehueche,15.8361,-88.7222,NO
+izabal,Izabal,izabal-18,Punta Caimanes,15.8500,-88.8000,SI
+izabal,Izabal,izabal-19,Laguna Escondida,15.7000,-88.9500,SI
+izabal,Izabal,izabal-20,Laguna El Amatillo,15.4500,-89.2000,SI
+izabal,Izabal,izabal-21,Río Zarco,15.5667,-89.3500,SI
+izabal,Izabal,izabal-22,Punta de Palma,15.7483,-88.6017,NO
+izabal,Izabal,izabal-23,Biotopo Chocón Machacas,15.7500,-88.8833,NO
+izabal,Izabal,izabal-24,Finca Sachamach,15.6167,-89.0500,SI
+izabal,Izabal,izabal-25,Cañón del Río Sauce,15.5833,-89.2833,SI
+huehuetenango,Huehuetenango,huehuetenango-0,Laguna Magdalena,15.5517,-91.3967,NO
+huehuetenango,Huehuetenango,huehuetenango-1,Hoyo de El Cimarrón,15.8378,-91.7058,NO
+huehuetenango,Huehuetenango,huehuetenango-2,Nacimiento del Río San Juan,15.5267,-91.5647,NO
+huehuetenango,Huehuetenango,huehuetenango-3,Cenotes de Candelaria,15.9189,-91.7372,NO
+huehuetenango,Huehuetenango,huehuetenango-4,Mirador Juan Diéguez Olaverri,15.4258,-91.4639,NO
+huehuetenango,Huehuetenango,huehuetenango-5,Parque Arqueológico Zaculeu,15.3308,-91.4936,NO
+huehuetenango,Huehuetenango,huehuetenango-6,Posada Unicornio Azul,15.4958,-91.5472,NO
+huehuetenango,Huehuetenango,huehuetenango-7,Laguna Brava (Yolnabaj),15.9083,-91.5833,NO
+huehuetenango,Huehuetenango,huehuetenango-8,Todos Santos Cuchumatán,15.5122,-91.6033,NO
+huehuetenango,Huehuetenango,huehuetenango-9,Cueva de Ixtenam,15.6500,-91.5500,SI
+huehuetenango,Huehuetenango,huehuetenango-10,Centro Ceremonial Q'anil,15.5300,-91.5600,SI
+huehuetenango,Huehuetenango,huehuetenango-11,San Mateo Ixtatán,15.8322,-91.4792,NO
+huehuetenango,Huehuetenango,huehuetenango-12,Montaña Peña Blanca,15.4000,-91.4800,SI
+huehuetenango,Huehuetenango,huehuetenango-13,Río Blanco,15.3500,-91.5167,SI
+huehuetenango,Huehuetenango,huehuetenango-14,Finca y Ruinas de Chaculá,15.9389,-91.6361,NO
+huehuetenango,Huehuetenango,huehuetenango-15,Chiabal (Llamas de los Cuchumatanes),15.5000,-91.5000,SI
+huehuetenango,Huehuetenango,huehuetenango-16,Parroquia y Virgen de Plata,15.3197,-91.4711,NO
+huehuetenango,Huehuetenango,huehuetenango-17,Río Serchil,15.3800,-91.4200,SI
+huehuetenango,Huehuetenango,huehuetenango-18,Templo Minerva,15.3214,-91.4678,NO
+huehuetenango,Huehuetenango,huehuetenango-19,Mapa en Relieve de Huehuetenango,15.3189,-91.4731,NO
+huehuetenango,Huehuetenango,huehuetenango-20,Cascada de Pojom,15.9667,-91.4833,SI
+huehuetenango,Huehuetenango,huehuetenango-21,San Juan Ixcoy,15.5978,-91.4467,NO
+huehuetenango,Huehuetenango,huehuetenango-22,Laguna Maxbal,15.9750,-91.2583,NO
+quiche,Quiché,quiche-0,Mercado de Chichicastenango,14.9439,-91.1111,NO
+quiche,Quiché,quiche-1,Iglesia de Santo Tomás,14.9436,-91.1108,NO
+quiche,Quiché,quiche-2,Cerro Pascual Abaj,14.9350,-91.1189,NO
+quiche,Quiché,quiche-3,Nebaj (Triángulo Ixil),15.4042,-91.1467,NO
+quiche,Quiché,quiche-4,Cascada de Chichel,15.4217,-91.1183,NO
+quiche,Quiché,quiche-5,Aldea y Laguna de Acul,15.4283,-91.1833,NO
+quiche,Quiché,quiche-6,Ruinas de Q'umarkaj (Utatlán),15.0233,-91.1719,NO
+quiche,Quiché,quiche-7,Laguna de Lemoa,14.9764,-91.1378,NO
+quiche,Quiché,quiche-8,Chajul y Cotzal,15.4858,-91.0361,NO
+quiche,Quiché,quiche-9,Balneario Pachitac,15.0083,-91.1417,SI
+quiche,Quiché,quiche-10,Uspantán,15.3478,-90.8711,NO
+quiche,Quiché,quiche-11,Hacienda Mil Amores,15.4211,-91.1889,NO
+quiche,Quiché,quiche-12,Museo Arqueológico Rossbach,14.9431,-91.1114,NO
+quiche,Quiché,quiche-13,Arco de Gucumatz,14.9458,-91.1117,NO
+quiche,Quiché,quiche-14,Cascadas de Batzchocolá,15.5333,-91.1333,SI
+quiche,Quiché,quiche-15,Joyabaj (Palo Volador),14.9897,-90.8033,NO
+quiche,Quiché,quiche-16,Sacapulas (Pozas Termales),15.3083,-91.0667,NO
+quiche,Quiché,quiche-17,Biotopo Chitinimit,15.2833,-90.9500,SI
+quiche,Quiché,quiche-18,Canillá,15.1764,-90.8528,NO
+sanmarcos,San Marcos,sanmarcos-0,Volcán Tajumulco,15.0442,-91.9039,NO
+sanmarcos,San Marcos,sanmarcos-1,Volcán Tacaná,15.1325,-92.1092,NO
+sanmarcos,San Marcos,sanmarcos-2,Refugio del Quetzal,14.9333,-91.8667,NO
+sanmarcos,San Marcos,sanmarcos-3,Cataratas de la Igualdad,14.9189,-91.8900,NO
+sanmarcos,San Marcos,sanmarcos-4,Playa Tilapa,14.5489,-92.2033,NO
+sanmarcos,San Marcos,sanmarcos-5,Palacio Municipal de San Marcos,14.9644,-91.7950,NO
+sanmarcos,San Marcos,sanmarcos-6,Balneario San Sebastián,14.9600,-91.8100,SI
+sanmarcos,San Marcos,sanmarcos-7,Malacatán,14.9122,-92.0578,NO
+sanmarcos,San Marcos,sanmarcos-8,Balneario La Castalia,14.9833,-91.8167,NO
+sanmarcos,San Marcos,sanmarcos-9,Playa de Ocós,14.5097,-92.1958,NO
+sanmarcos,San Marcos,sanmarcos-10,Casa del Lago,14.9500,-91.7800,SI
+sanmarcos,San Marcos,sanmarcos-11,Cerro de la Cruz de San Pedro,14.9689,-91.7722,NO
+sanmarcos,San Marcos,sanmarcos-12,Sibinal,15.1500,-92.0500,NO
+sanmarcos,San Marcos,sanmarcos-13,Río Cabúz,14.9000,-92.0000,SI
+sanmarcos,San Marcos,sanmarcos-14,Esquipulas Palo Gordo,14.9389,-91.8267,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-0,Centro Histórico de Xela,14.8347,-91.5181,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-1,Fuentes Georginas,14.7503,-91.4806,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-2,Volcán Chicabal y Laguna Chicabal,14.7892,-91.6569,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-3,Volcán Santa María y Santiaguito,14.7561,-91.5528,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-4,Cerro El Baúl,14.8322,-91.5008,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-5,Los Baños de Almolonga,14.8142,-91.4947,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-6,Zunil (Pueblo y Cofradía),14.7844,-91.4844,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-7,Pasaje Enríquez y Teatro Municipal,14.8353,-91.5186,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-8,Museo del Ferrocarril de los Altos,14.8436,-91.5208,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-9,Laguna de San Juan Ostuncalco,14.8692,-91.6219,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-10,Salcajá (Iglesia San Jacinto),14.8803,-91.4589,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-11,Cantel,14.8153,-91.4561,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-12,Parque Natural Cerro Quiac,14.8117,-91.4789,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-13,Baños Térmicos Los Vapores,14.8219,-91.4989,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-14,Valparaíso,14.7300,-91.5200,SI
+quetzaltenango,Quetzaltenango,quetzaltenango-15,Volcán Siete Orejas,14.8156,-91.6167,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-16,Cofradía de San Pascual Bailón,14.8389,-91.5100,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-17,La Esperanza,14.8711,-91.5600,NO
+quetzaltenango,Quetzaltenango,quetzaltenango-18,Volcán Lacandón,14.7700,-91.6800,SI
+totonicapan,Totonicapán,totonicapan-0,Iglesia de San Andrés Xecul,14.9042,-91.4542,NO
+totonicapan,Totonicapán,totonicapan-1,Riscos de Momostenango,15.0442,-91.4089,NO
+totonicapan,Totonicapán,totonicapan-2,Cumbres de María Tecún,14.9167,-91.2833,NO
+totonicapan,Totonicapán,totonicapan-3,Baños Termales Pahracan,15.0333,-91.4167,SI
+totonicapan,Totonicapán,totonicapan-4,Tanque Los Dragones,14.9111,-91.3611,NO
+totonicapan,Totonicapán,totonicapan-5,San Cristóbal Totonicapán,14.9172,-91.4406,NO
+totonicapan,Totonicapán,totonicapan-6,Mercado de San Francisco El Alto,14.9458,-91.4422,NO
+totonicapan,Totonicapán,totonicapan-7,Fuentes Termales Chupachinto,14.9250,-91.3650,SI
+totonicapan,Totonicapán,totonicapan-8,Cuevas de San Miguel,14.9100,-91.3500,SI
+totonicapan,Totonicapán,totonicapan-9,Sendero Ecológico El Aprisco,14.9200,-91.3400,SI
+totonicapan,Totonicapán,totonicapan-10,Astillero Municipal de Totonicapán,14.9000,-91.3300,SI
+totonicapan,Totonicapán,totonicapan-11,Baños Termales Palá,15.0400,-91.4200,SI
+totonicapan,Totonicapán,totonicapan-12,Baños Termales Nueve Ojos,14.9280,-91.3680,SI
+totonicapan,Totonicapán,totonicapan-13,Cerro Alto Abaj,14.9300,-91.3500,SI
+totonicapan,Totonicapán,totonicapan-14,Talleres de Artesanías de Lana,15.0450,-91.4100,SI
+solola,Sololá,solola-0,Lago de Atitlán,14.6906,-91.2025,NO
+solola,Sololá,solola-1,Panajachel (Calle Santander),14.7419,-91.1578,NO
+solola,Sololá,solola-2,San Juan La Laguna,14.6953,-91.2872,NO
+solola,Sololá,solola-3,San Pedro La Laguna,14.6933,-91.2725,NO
+solola,Sololá,solola-4,Santiago Atitlán,14.6406,-91.2292,NO
+solola,Sololá,solola-5,Santa Catarina Palopó,14.7214,-91.1344,NO
+solola,Sololá,solola-6,San Marcos La Laguna,14.7247,-91.2583,NO
+solola,Sololá,solola-7,Reserva Natural Atitlán,14.7489,-91.1642,NO
+solola,Sololá,solola-8,Mirador Rostro Maya (Rupalaj K'istalin),14.7117,-91.2981,NO
+solola,Sololá,solola-9,Volcán Atitlán y Tolimán,14.5833,-91.1864,NO
+solola,Sololá,solola-10,San Lucas Tolimán,14.6289,-91.1367,NO
+solola,Sololá,solola-11,Santa Cruz La Laguna,14.7444,-91.2056,NO
+solola,Sololá,solola-12,Torre del Centro Cultural de Sololá,14.7728,-91.1839,NO
+solola,Sololá,solola-13,Jaibalito,14.7431,-91.2264,NO
+solola,Sololá,solola-14,Playa Las Cristalinas,14.7042,-91.2858,NO
+solola,Sololá,solola-15,Cerro Tzankujil,14.7222,-91.2611,NO
+solola,Sololá,solola-16,Museo Lacustre Atitlán,14.7425,-91.1572,NO
+solola,Sololá,solola-17,Mirador Kaqasiiwan,14.6989,-91.2917,NO
+solola,Sololá,solola-18,Nahualá,14.8436,-91.3175,NO
+solola,Sololá,solola-19,Santa Clara La Laguna,14.7172,-91.3047,NO
+solola,Sololá,solola-20,San Jorge La Laguna,14.7500,-91.1733,NO
+solola,Sololá,solola-21,Catarata de Panajachel,14.7483,-91.1517,NO
+chimaltenango,Chimaltenango,chimaltenango-0,Sitio Arqueológico Iximché,14.7356,-90.9967,NO
+chimaltenango,Chimaltenango,chimaltenango-1,Sitio Arqueológico Mixco Viejo,14.8767,-90.6653,NO
+chimaltenango,Chimaltenango,chimaltenango-2,Volcán Acatenango,14.5008,-90.8758,NO
+chimaltenango,Chimaltenango,chimaltenango-3,Parque Nacional Los Aposentos,14.6419,-90.8125,NO
+chimaltenango,Chimaltenango,chimaltenango-4,Corredor Gastronómico Tecpán,14.7600,-90.9850,NO
+chimaltenango,Chimaltenango,chimaltenango-5,Balneario Ojo de Agua,14.6600,-90.8200,SI
+chimaltenango,Chimaltenango,chimaltenango-6,San Juan Comalapa,14.7408,-90.8872,NO
+chimaltenango,Chimaltenango,chimaltenango-7,Paseo Xejasmin,14.7750,-90.9700,SI
+chimaltenango,Chimaltenango,chimaltenango-8,Parroquia Colonial de Chimaltenango,14.6617,-90.8208,NO
+chimaltenango,Chimaltenango,chimaltenango-9,El Tejar,14.6472,-90.7933,NO
+chimaltenango,Chimaltenango,chimaltenango-10,Laguna Chichoy,14.8050,-91.0317,NO
+chimaltenango,Chimaltenango,chimaltenango-11,Casa Xara,14.7620,-90.9810,SI
+chimaltenango,Chimaltenango,chimaltenango-12,Cueva del Diablo,14.7300,-90.9900,SI
+chimaltenango,Chimaltenango,chimaltenango-13,Santuario de San Simón,14.6194,-90.8433,NO
+chimaltenango,Chimaltenango,chimaltenango-14,Zaragoza,14.6500,-90.8900,NO
+chimaltenango,Chimaltenango,chimaltenango-15,Patzún,14.6817,-91.0150,NO
+chimaltenango,Chimaltenango,chimaltenango-16,Parroquia de San Martín Jilotepeque,14.7789,-90.7925,NO
+sacatepequez,Sacatepéquez,sacatepequez-0,La Antigua Guatemala,14.5572,-90.7336,NO
+sacatepequez,Sacatepéquez,sacatepequez-1,Arco de Santa Catalina,14.5592,-90.7344,NO
+sacatepequez,Sacatepéquez,sacatepequez-2,Cerro de la Cruz,14.5661,-90.7333,NO
+sacatepequez,Sacatepéquez,sacatepequez-3,Hobbitenango,14.5886,-90.7042,NO
+sacatepequez,Sacatepéquez,sacatepequez-4,Altamira / Mano Gigante,14.5897,-90.7011,NO
+sacatepequez,Sacatepéquez,sacatepequez-5,Volcán de Agua (Hunahpú),14.4650,-90.7428,NO
+sacatepequez,Sacatepéquez,sacatepequez-6,Iglesia y Convento de La Merced,14.5619,-90.7347,NO
+sacatepequez,Sacatepéquez,sacatepequez-7,Convento de San Francisco,14.5531,-90.7308,NO
+sacatepequez,Sacatepéquez,sacatepequez-8,San Juan del Obispo,14.5267,-90.7228,NO
+sacatepequez,Sacatepéquez,sacatepequez-9,San Antonio Aguas Calientes,14.5422,-90.7700,NO
+sacatepequez,Sacatepéquez,sacatepequez-10,Catarata La Rinconada,14.5200,-90.7000,SI
+sacatepequez,Sacatepéquez,sacatepequez-11,Pastores,14.5947,-90.7533,NO
+sacatepequez,Sacatepéquez,sacatepequez-12,Ciudad Vieja,14.5244,-90.7622,NO
+sacatepequez,Sacatepéquez,sacatepequez-13,Finca Filadelfia,14.5772,-90.7378,NO
+sacatepequez,Sacatepéquez,sacatepequez-14,Ruinas de Capuchinas,14.5583,-90.7306,NO
+sacatepequez,Sacatepéquez,sacatepequez-15,Finca El Pilar,14.5417,-90.7183,NO
+sacatepequez,Sacatepéquez,sacatepequez-16,San Cristóbal El Alto,14.5389,-90.7100,NO
+sacatepequez,Sacatepéquez,sacatepequez-17,La Ruta del Yalú,14.6200,-90.6900,SI
+sacatepequez,Sacatepéquez,sacatepequez-18,Tenedor del Cerro,14.5528,-90.7194,NO
+sacatepequez,Sacatepéquez,sacatepequez-19,Sumpango (Festival de Barriletes),14.6475,-90.7350,NO
+sacatepequez,Sacatepéquez,sacatepequez-20,Santiago Sacatepéquez,14.6367,-90.6789,NO
+sacatepequez,Sacatepéquez,sacatepequez-21,San Gaspar Vivar,14.5442,-90.7317,NO
+sacatepequez,Sacatepéquez,sacatepequez-22,ChocoMuseo,14.5578,-90.7328,NO
+guatemala,Guatemala,guatemala-0,Centro Histórico y Plaza de la Constitución,14.6428,-90.5131,NO
+guatemala,Guatemala,guatemala-1,Mercado Central,14.6417,-90.5117,NO
+guatemala,Guatemala,guatemala-2,Paseo de la Sexta,14.6350,-90.5142,NO
+guatemala,Guatemala,guatemala-3,Sitio Arqueológico Kaminaljuyú,14.6317,-90.5489,NO
+guatemala,Guatemala,guatemala-4,Mapa en Relieve de Guatemala,14.6569,-90.5094,NO
+guatemala,Guatemala,guatemala-5,Ciudad Cayalá,14.6128,-90.4858,NO
+guatemala,Guatemala,guatemala-6,Zoológico La Aurora,14.5939,-90.5283,NO
+guatemala,Guatemala,guatemala-7,Museo Popol Vuh e Ixchel,14.6039,-90.5061,NO
+guatemala,Guatemala,guatemala-8,Lago de Amatitlán,14.4842,-90.5514,NO
+guatemala,Guatemala,guatemala-9,Parque Nacional Naciones Unidas,14.4750,-90.5847,NO
+guatemala,Guatemala,guatemala-10,Cerrito del Carmen,14.6433,-90.5039,NO
+guatemala,Guatemala,guatemala-11,San Juan Sacatepéquez,14.7189,-90.6439,NO
+guatemala,Guatemala,guatemala-12,Parque Ecológico Senderos de Alux,14.6361,-90.6272,NO
+guatemala,Guatemala,guatemala-13,IRTRA Petapa,14.5761,-90.5367,NO
+guatemala,Guatemala,guatemala-14,Santa Catarina Pinula,14.5689,-90.4958,NO
+guatemala,Guatemala,guatemala-15,Santa Teresita Thermal Spa,14.4758,-90.6033,NO
+guatemala,Guatemala,guatemala-16,Teatro Nacional (Centro Cultural Miguel Ángel Asturias),14.6278,-90.5186,NO
+guatemala,Guatemala,guatemala-17,Museo Nacional de Arqueología y Etnología,14.5978,-90.5286,NO
+guatemala,Guatemala,guatemala-18,Parque Ecológico Kanajuyú,14.5961,-90.4889,NO
+guatemala,Guatemala,guatemala-19,Mercado de Artesanías,14.5936,-90.5261,NO
+guatemala,Guatemala,guatemala-20,San Raymundo,14.7644,-90.5967,NO
+guatemala,Guatemala,guatemala-21,Chuarrancho,14.8211,-90.5139,NO
+guatemala,Guatemala,guatemala-22,Parque Ecológico La Ciénaga,14.6750,-90.5500,SI
+elprogreso,El Progreso,elprogreso-0,Parque Acuático Guastatoya,14.8542,-90.0717,NO
+elprogreso,El Progreso,elprogreso-1,Sitio Arqueológico y Balneario Guaytán,14.9317,-89.9678,NO
+elprogreso,El Progreso,elprogreso-2,Balneario Pozas Los Plátanos,14.8200,-90.2300,SI
+elprogreso,El Progreso,elprogreso-3,Sierra de las Minas,15.0833,-89.8333,SI
+elprogreso,El Progreso,elprogreso-4,Río Hato y El Rancho,14.9125,-90.0078,NO
+elprogreso,El Progreso,elprogreso-5,Sanarate (Parque Central),14.7889,-90.1983,NO
+elprogreso,El Progreso,elprogreso-6,Cerro El Kiosco,14.8600,-90.0700,SI
+elprogreso,El Progreso,elprogreso-7,Balneario El Chilar,14.8400,-90.0600,SI
+elprogreso,El Progreso,elprogreso-8,Cerro El Pinalón,15.0831,-89.9242,NO
+elprogreso,El Progreso,elprogreso-9,Antiguo Túnel Férreo,14.8800,-90.0300,SI
+elprogreso,El Progreso,elprogreso-10,Parque Agua Caliente,14.7431,-90.3017,NO
+elprogreso,El Progreso,elprogreso-11,Paseo del Rancho,14.9100,-90.0050,SI
+elprogreso,El Progreso,elprogreso-12,Tumba de Guaytán,14.9325,-89.9669,NO
+elprogreso,El Progreso,elprogreso-13,San Cristóbal Acasaguastlán,14.9167,-89.8833,NO
+elprogreso,El Progreso,elprogreso-14,Reserva Cerro Danto,15.0500,-89.8500,SI
+zacapa,Zacapa,zacapa-0,Museo Paleontológico Roberto Woolfolk,14.9967,-89.5714,NO
+zacapa,Zacapa,zacapa-1,Balneario Pasabién (Río Hondo),15.0139,-89.6583,NO
+zacapa,Zacapa,zacapa-2,Río Hondo (Corredor de Turicentros),15.0558,-89.5850,NO
+zacapa,Zacapa,zacapa-3,Parque Cabañas,14.9300,-89.7000,SI
+zacapa,Zacapa,zacapa-4,Sierra de las Minas (lado zacapaneco),15.0667,-89.6167,SI
+zacapa,Zacapa,zacapa-5,Teculután,14.9856,-89.7153,NO
+zacapa,Zacapa,zacapa-6,Gualán,15.1306,-89.3622,NO
+zacapa,Zacapa,zacapa-7,Baños Termales de Santa Marta,15.0200,-89.6000,SI
+zacapa,Zacapa,zacapa-8,Montaña del Olvido,15.0800,-89.5500,SI
+zacapa,Zacapa,zacapa-9,Cascada Santa Rosalía Mármol,15.0300,-89.6800,SI
+zacapa,Zacapa,zacapa-10,El Boquerón de Zacapa,14.9500,-89.4500,SI
+zacapa,Zacapa,zacapa-11,Parque Central de Zacapa y Catedral,14.9722,-89.5306,NO
+zacapa,Zacapa,zacapa-12,San Diego,14.8000,-89.7833,NO
+zacapa,Zacapa,zacapa-13,Balneario El Silencio,15.0350,-89.5950,SI
+chiquimula,Chiquimula,chiquimula-0,Basílica del Santo Cristo de Esquipulas,14.5614,-89.3514,NO
+chiquimula,Chiquimula,chiquimula-1,Volcán y Laguna de Ipala,14.5542,-89.6386,NO
+chiquimula,Chiquimula,chiquimula-2,Parque de Aventura Chatún,14.5806,-89.3375,NO
+chiquimula,Chiquimula,chiquimula-3,Piedra de los Compadres,14.5714,-89.3606,NO
+chiquimula,Chiquimula,chiquimula-4,Cueva de las Minas,14.5458,-89.3458,NO
+chiquimula,Chiquimula,chiquimula-5,Ruinas de la Parroquia Vieja,14.5661,-89.3528,NO
+chiquimula,Chiquimula,chiquimula-6,Camotán y Jocotán,14.8194,-89.3889,NO
+chiquimula,Chiquimula,chiquimula-7,Volcán Quezaltepeque,14.6333,-89.4500,NO
+chiquimula,Chiquimula,chiquimula-8,Balneario Pasabién (San José La Arada),14.7167,-89.5833,SI
+chiquimula,Chiquimula,chiquimula-9,Paragliding Chiquimula,14.7900,-89.5300,SI
+chiquimula,Chiquimula,chiquimula-10,Laguna del Jute,14.7667,-89.5833,SI
+chiquimula,Chiquimula,chiquimula-11,Poza de la Pila,14.7500,-89.5500,SI
+chiquimula,Chiquimula,chiquimula-12,Sitio Histórico Batalla de La Arada,14.7172,-89.5839,NO
+chiquimula,Chiquimula,chiquimula-13,Volcán Monte Rico,14.5833,-89.5167,SI
+chiquimula,Chiquimula,chiquimula-14,Olopa,14.6933,-89.3500,NO
+jalapa,Jalapa,jalapa-0,Cataratas de Urlanta,14.6400,-90.0050,NO
+jalapa,Jalapa,jalapa-1,Volcán Jumay,14.6983,-89.9867,NO
+jalapa,Jalapa,jalapa-2,Balneario Los Chorros,14.6333,-90.0167,SI
+jalapa,Jalapa,jalapa-3,Balneario Agua Tibia,14.6600,-89.9000,SI
+jalapa,Jalapa,jalapa-4,Quebrada El Salto,14.6200,-90.0300,SI
+jalapa,Jalapa,jalapa-5,Volcán Alzatate,14.5167,-90.0333,NO
+jalapa,Jalapa,jalapa-6,Laguna de Mataquesuintla,14.5250,-90.1833,SI
+jalapa,Jalapa,jalapa-7,San Luis Jilotepeque,14.6500,-89.7333,NO
+jalapa,Jalapa,jalapa-8,Parque Ecológico Pino Dulce,14.5272,-90.1378,NO
+jalapa,Jalapa,jalapa-9,Las Cuevas del Silvino,14.6100,-89.8800,SI
+jalapa,Jalapa,jalapa-10,Cascadas de Tatasiriri,14.5417,-90.0639,NO
+jalapa,Jalapa,jalapa-11,El Hoyo de Monjas,14.4667,-89.8667,NO
+jalapa,Jalapa,jalapa-12,Laguna del Hoyo,14.4661,-89.8647,NO
+jalapa,Jalapa,jalapa-13,San Manuel Chaparrón,14.5167,-89.7833,NO
+jutiapa,Jutiapa,jutiapa-0,Cueva y Turicentro Andá Mirá,14.2467,-89.7389,NO
+jutiapa,Jutiapa,jutiapa-1,Lago de Güija,14.2583,-89.5292,NO
+jutiapa,Jutiapa,jutiapa-2,Volcán y Laguna de Moyuta,14.0322,-90.0967,NO
+jutiapa,Jutiapa,jutiapa-3,Volcán Chingo,14.1167,-89.7333,NO
+jutiapa,Jutiapa,jutiapa-4,Volcán de Suchitán,14.4000,-89.7833,NO
+jutiapa,Jutiapa,jutiapa-5,Turicentro Kayarí,14.2800,-89.9000,SI
+jutiapa,Jutiapa,jutiapa-6,Parque Central de Jutiapa,14.2828,-89.8956,NO
+jutiapa,Jutiapa,jutiapa-7,Comapa,14.1167,-89.9167,NO
+jutiapa,Jutiapa,jutiapa-8,Volcán Culma,14.2958,-89.8708,NO
+jutiapa,Jutiapa,jutiapa-9,Laguna de Retana,14.3333,-89.8500,NO
+jutiapa,Jutiapa,jutiapa-10,D'Rocks Jutiapa,14.2750,-89.8850,SI
+jutiapa,Jutiapa,jutiapa-11,Playas de Pasaco,13.9833,-90.2000,NO
+jutiapa,Jutiapa,jutiapa-12,Conguaco,14.0500,-90.0333,NO
+jutiapa,Jutiapa,jutiapa-13,Asunción Mita (Sitio Arqueológico Benque),14.3308,-89.7125,NO
+santarosa,Santa Rosa,santarosa-0,Cataratas Los Amates,14.2256,-90.3017,NO
+santarosa,Santa Rosa,santarosa-1,Reserva Natural Monterrico,13.8967,-90.4828,NO
+santarosa,Santa Rosa,santarosa-2,Laguna de Ayarza,14.4181,-90.1389,NO
+santarosa,Santa Rosa,santarosa-3,Puente de Los Esclavos,14.2536,-90.2817,NO
+santarosa,Santa Rosa,santarosa-4,Playa El Chapetón,13.9167,-90.3667,NO
+santarosa,Santa Rosa,santarosa-5,Barra de Las Lisas,13.9317,-90.2867,NO
+santarosa,Santa Rosa,santarosa-6,Volcán Tecuamburro,14.1561,-90.4056,NO
+santarosa,Santa Rosa,santarosa-7,Biotopo Monterrico-Barra de El Jiote,13.8950,-90.4850,NO
+santarosa,Santa Rosa,santarosa-8,Volcán Cruz Quemada,14.2833,-90.3167,NO
+santarosa,Santa Rosa,santarosa-9,Pueblo Nuevo Viñas,14.2250,-90.4800,NO
+santarosa,Santa Rosa,santarosa-10,Laguna Ixpaco,14.1956,-90.4283,NO
+santarosa,Santa Rosa,santarosa-11,Laguna El Pino (Barberena),14.3467,-90.4017,NO
+santarosa,Santa Rosa,santarosa-12,Playa Hawaii,13.8617,-90.4183,NO
+santarosa,Santa Rosa,santarosa-13,Barberena,14.3106,-90.3606,NO
+santarosa,Santa Rosa,santarosa-14,Guazacapán,14.0733,-90.4167,NO
+santarosa,Santa Rosa,santarosa-15,San Rafael Las Flores,14.4817,-90.1733,NO
+escuintla,Escuintla,escuintla-0,Volcán de Pacaya,14.3817,-90.6011,NO
+escuintla,Escuintla,escuintla-1,Playa Sipacate y Naranjo,13.9214,-91.2056,NO
+escuintla,Escuintla,escuintla-2,Sitio Arqueológico El Baúl y Bilbao,14.3317,-91.0089,NO
+escuintla,Escuintla,escuintla-3,Museo de La Democracia,14.2317,-90.9472,NO
+escuintla,Escuintla,escuintla-4,Puerto San José y Chulamar,13.9281,-90.8239,NO
+escuintla,Escuintla,escuintla-5,Marina Pez Vela,13.9311,-90.7933,NO
+escuintla,Escuintla,escuintla-6,Cascadas de San Pedro Mártir,14.3217,-90.7817,NO
+escuintla,Escuintla,escuintla-7,Auto Safari Chapín,14.2186,-90.6658,NO
+escuintla,Escuintla,escuintla-8,Volcán de Fuego,14.4747,-90.8808,NO
+escuintla,Escuintla,escuintla-9,Santa Lucía Cotzumalguapa,14.3333,-91.0233,NO
+escuintla,Escuintla,escuintla-10,Finca El Barretal,14.3983,-90.6283,NO
+escuintla,Escuintla,escuintla-11,Playa El Paredón,13.9172,-91.0717,NO
+escuintla,Escuintla,escuintla-12,Museo Las Ilusiones,14.3283,-91.0117,NO
+escuintla,Escuintla,escuintla-13,Iztapa,13.9333,-90.7075,NO
+escuintla,Escuintla,escuintla-14,Tiquisate,14.2833,-91.3667,NO
+escuintla,Escuintla,escuintla-15,Mercado y Ceiba de Palín,14.4042,-90.6975,NO
+suchitepequez,Suchitepéquez,suchitepequez-0,Mazatenango (Carnaval Mazateco),14.5342,-91.5033,NO
+suchitepequez,Suchitepéquez,suchitepequez-1,Reserva Natural Los Tarrales,14.5261,-91.1394,NO
+suchitepequez,Suchitepéquez,suchitepequez-2,Playa Tahuexco,14.1500,-91.4333,NO
+suchitepequez,Suchitepéquez,suchitepequez-3,Playa Chicago,14.1333,-91.4667,SI
+suchitepequez,Suchitepéquez,suchitepequez-4,Chicacao,14.5444,-91.3250,NO
+suchitepequez,Suchitepéquez,suchitepequez-5,Cuyotenango,14.5389,-91.5722,NO
+suchitepequez,Suchitepéquez,suchitepequez-6,San Antonio Suchitepéquez,14.5350,-91.4183,NO
+suchitepequez,Suchitepéquez,suchitepequez-7,Río Ixtacapa,14.5200,-91.4500,SI
+suchitepequez,Suchitepéquez,suchitepequez-8,El Chorro del Carmen,14.5833,-91.4833,SI
+suchitepequez,Suchitepéquez,suchitepequez-9,Beneficio de Café Chocolá,14.6139,-91.4444,NO
+suchitepequez,Suchitepéquez,suchitepequez-10,Fachada de San Pablo Jocopilas,14.5889,-91.4542,NO
+suchitepequez,Suchitepéquez,suchitepequez-11,Bulbaxyá,14.5667,-91.3833,SI
+suchitepequez,Suchitepéquez,suchitepequez-12,Samayac,14.5778,-91.4611,NO
+suchitepequez,Suchitepéquez,suchitepequez-13,Zunilito,14.6111,-91.5111,NO
+retalhuleu,Retalhuleu,retalhuleu-0,Parque Acuático Xocomil (IRTRA),14.6006,-91.6167,NO
+retalhuleu,Retalhuleu,retalhuleu-1,Parque Temático Xetulul (IRTRA),14.6033,-91.6139,NO
+retalhuleu,Retalhuleu,retalhuleu-2,Hostales del IRTRA,14.6078,-91.6186,NO
+retalhuleu,Retalhuleu,retalhuleu-3,Sitio Arqueológico Tak'alik Ab'aj,14.6469,-91.7336,NO
+retalhuleu,Retalhuleu,retalhuleu-4,Puerto y Playa de Champerico,14.2936,-91.9161,NO
+retalhuleu,Retalhuleu,retalhuleu-5,Dino Park,14.5956,-91.6178,NO
+retalhuleu,Retalhuleu,retalhuleu-6,Xulik,14.5967,-91.6183,NO
+retalhuleu,Retalhuleu,retalhuleu-7,Manchón Guamuchal,14.4333,-92.0833,NO
+retalhuleu,Retalhuleu,retalhuleu-8,Palacio Departamental de Retalhuleu,14.5358,-91.6778,NO
+retalhuleu,Retalhuleu,retalhuleu-9,Museo Horacio Alejos León,14.5361,-91.6781,NO
+retalhuleu,Retalhuleu,retalhuleu-10,San Andrés Villa Seca,14.5833,-91.5833,NO
+retalhuleu,Retalhuleu,retalhuleu-11,Club Guayacán,14.5300,-91.6600,SI
+retalhuleu,Retalhuleu,retalhuleu-12,Finca El Patrocinio,14.6389,-91.6333,NO
+retalhuleu,Retalhuleu,retalhuleu-13,Playa El Aserreadero,14.3050,-91.9050,SI
+retalhuleu,Retalhuleu,retalhuleu-14,San Felipe Retalhuleu,14.6222,-91.5972,NO
+retalhuleu,Retalhuleu,retalhuleu-15,San Sebastián Retalhuleu,14.5611,-91.6500,NO
+retalhuleu,Retalhuleu,retalhuleu-16,Parque Recreativo La Trinidad,14.6100,-91.6400,SI
+retalhuleu,Retalhuleu,retalhuleu-17,Santa Cruz Muluá (Casco Urbano),14.5833,-91.6333,NO
