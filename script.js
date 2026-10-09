@@ -207,16 +207,6 @@ function markerIcon(site) {
   });
 }
 
-function escapeHtml(value) {
-  return String(value).replace(/[&<>'"]/g, (character) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    "'": "&#39;",
-    '"': "&quot;",
-  }[character]));
-}
-
 function googleMapsUrl(site) {
   const destination = `${Number(site.lat)},${Number(site.lng)}`;
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
@@ -228,6 +218,32 @@ function destroyDetailMap() {
     detailMap.remove();
     detailMap = null;
   }
+}
+
+function buildPopup(site) {
+  const wrap = document.createElement("div");
+
+  const title = document.createElement("strong");
+  title.textContent = site.name;
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "gt-popup-btn";
+  const label = () => (visited.has(site.id) ? "✓ Visitado (quitar)" : "Marcar como visitado");
+  btn.textContent = label();
+  btn.addEventListener("click", () => {
+    toggleSite(site.id);
+    btn.textContent = label();
+  });
+
+  const link = document.createElement("a");
+  link.href = googleMapsUrl(site);
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Cómo llegar en Google Maps";
+
+  wrap.append(title, document.createElement("br"), btn, document.createElement("br"), link);
+  return wrap;
 }
 
 function createDetailMap(dept) {
@@ -254,17 +270,16 @@ function createDetailMap(dept) {
   }).addTo(detailMap);
 
   mappedSites.forEach((site) => {
-    const popup = `
-      <strong>${escapeHtml(site.name)}</strong>
-      <br>
-      <a href="${googleMapsUrl(site)}" target="_blank" rel="noopener noreferrer">
-        Cómo llegar en Google Maps
-      </a>`;
     const marker = L.marker([Number(site.lat), Number(site.lng)], { icon: markerIcon(site) })
       .addTo(detailMap)
-      .bindPopup(popup);
+      .bindPopup(buildPopup(site));
     detailMarkers.set(site.id, marker);
   });
+
+  if (mappedSites.length > 1) {
+    const bounds = L.latLngBounds(mappedSites.map((site) => [Number(site.lat), Number(site.lng)]));
+    detailMap.fitBounds(bounds, { padding: [30, 30] });
+  }
 }
 
 function updateDetailMarkers() {
