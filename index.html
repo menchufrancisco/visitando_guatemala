@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guatemala, departamento por departamento</title>
+  <meta name="description" content="Explora Guatemala departamento por departamento. Marca los sitios turísticos que has visitado y rastrea tu progreso por los 22 departamentos.">
+  <meta property="og:title" content="Visitando Guatemala — Departamento por departamento">
+  <meta property="og:description" content="Marca los sitios turísticos que has visitado en cada departamento de Guatemala.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇬🇹</text></svg>">
+  <title>Visitando Guatemala — Departamento por departamento</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
   <div class="gt-app">
@@ -34,6 +38,7 @@
           <span class="gt-legend-item"><span class="gt-swatch stone"></span> Sin visitar</span>
           <span class="gt-legend-item"><span class="gt-swatch gold"></span> Algunos</span>
           <span class="gt-legend-item"><span class="gt-swatch jade"></span> Completo</span>
+          <span class="gt-legend-hint">Haz clic en un departamento para explorar →</span>
         </div>
       </div>
 
@@ -62,7 +67,7 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <div class="gt-toast" id="gt-toast"></div>
   <script src="script.js"></script>
 </body>
 </html>
