@@ -53,6 +53,53 @@
           <span><i class="gt-legend-pin visited"></i> Visitado</span>
         </div>
       </section>
+      <section class="gt-suggestion">
+        <button class="gt-suggestion-toggle" id="gt-suggestion-toggle" type="button" aria-expanded="false" aria-controls="gt-suggestion-panel">
+          ➕ Sugerir un sitio
+        </button>
+        <div class="gt-suggestion-panel" id="gt-suggestion-panel" hidden>
+          <div class="gt-suggestion-heading">
+            <div>
+              <h2>Sugerir un sitio</h2>
+              <p>Completa los datos y selecciona su ubicación haciendo clic en el mapa.</p>
+            </div>
+            <button class="gt-suggestion-close" id="gt-suggestion-close" type="button" aria-label="Cerrar formulario">×</button>
+          </div>
+          <form id="gt-suggestion-form" novalidate>
+            <label class="gt-suggestion-field">
+              <span>Departamento</span>
+              <select id="gt-suggestion-department" name="departamento_id" required>
+                <option value="">Selecciona un departamento</option>
+              </select>
+            </label>
+            <label class="gt-suggestion-field">
+              <span>Nombre del sitio</span>
+              <input id="gt-suggestion-name" name="nombre" type="text" minlength="3" maxlength="120" required>
+            </label>
+            <label class="gt-suggestion-field">
+              <span>Comentario <small>(opcional, hasta 500 caracteres)</small></span>
+              <textarea id="gt-suggestion-comment" name="comentario" maxlength="500" rows="3"></textarea>
+            </label>
+            <div class="gt-suggestion-coordinates">
+              <div>
+                <span>Latitud</span>
+                <output id="gt-suggestion-lat">—</output>
+              </div>
+              <div>
+                <span>Longitud</span>
+                <output id="gt-suggestion-lng">—</output>
+              </div>
+              <button class="gt-suggestion-location" id="gt-suggestion-location" type="button">Usar mi ubicación</button>
+              <p class="gt-suggestion-hint">Elige un punto dentro de Guatemala (lat. 13.5–18.0, lng. -92.4–-88.2).</p>
+            </div>
+            <div class="gt-suggestion-honeypot" aria-hidden="true">
+              <label for="gt-suggestion-web">Web</label>
+              <input id="gt-suggestion-web" name="web" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="gt-suggestion-submit" id="gt-suggestion-submit" type="submit">Enviar sugerencia</button>
+          </form>
+        </div>
+      </section>
       <section class="gt-nearby" id="gt-nearby" aria-live="polite" hidden>
         <h2 class="gt-nearby-title">Sitios pendientes más cercanos</h2>
         <ol class="gt-nearby-list" id="gt-nearby-list"></ol>

@@ -1,5 +1,19 @@
+const SUPABASE_URL = "https://gdxegctxwjaywbhnjtzz.supabase.co";
+const SUPABASE_KEY = "sb_publishable_iXl1-FcocRI0iR45rklr8g_w8uStkrx";
+
+async function enviarSugerencia({ departamento_id, nombre, lat, lng, comentario }) {
+  const headers = { "apikey": SUPABASE_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" };
+  if (SUPABASE_KEY.startsWith("eyJ")) headers["Authorization"] = `Bearer ${SUPABASE_KEY}`;
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/sugerencias`, {
+    method: "POST", headers,
+    body: JSON.stringify({ departamento_id, nombre, lat, lng, comentario: comentario || null }),
+  });
+  if (!res.ok) throw new Error(`Error ${res.status}: ${await res.text()}`);
+}
+
 // Datos de departamentos cargados asíncronamente desde los archivos JSON.
 let DEPARTAMENTOS = [];
+let SUGGESTION_DEPARTMENTS = [];
 const STORAGE_KEY = "sitios-visitados-gt";
 const markers = new Map();
 const sitesById = new Map();
@@ -8,6 +22,8 @@ let map = null;
 let userLocationCircle = null;
 let userCoordinates = null;
 let locationActive = false;
+let suggestionMarker = null;
+let suggestionCoordinates = null;
 let toastTimer = null;
 let leafletPromise = null;
 
@@ -99,6 +115,10 @@ async function loadData() {
 
   const departments = await deptsResponse.json();
   const sitesData = await sitesResponse.json();
+  SUGGESTION_DEPARTMENTS = Object.entries(sitesData).map(([id, data]) => ({
+    id,
+    name: data.departamento,
+  }));
   DEPARTAMENTOS = departments.map((dept) => {
     const sites = sitesData[dept.id]?.sitios;
     return {
@@ -397,10 +417,128 @@ function createMap() {
   });
 
   addDepartmentOptions();
+  setupSuggestionForm();
   document.getElementById("gt-department-filter").addEventListener("change", applyFilters);
   document.getElementById("gt-pending-filter").addEventListener("change", applyFilters);
   document.getElementById("gt-nearby-btn").addEventListener("click", locateNearbySites);
+  map.on("click", (event) => {
+    if (document.getElementById("gt-suggestion-panel").hidden) return;
+    if (event.originalEvent.target.closest(".leaflet-marker-icon, .leaflet-control")) return;
+    setSuggestionCoordinates(event.latlng.lat, event.latlng.lng);
+  });
   applyFilters();
+}
+
+function setupSuggestionForm() {
+  const departmentSelect = document.getElementById("gt-suggestion-department");
+  SUGGESTION_DEPARTMENTS.forEach(({ id, name }) => {
+    const option = document.createElement("option");
+    option.value = id;
+    option.textContent = name;
+    departmentSelect.appendChild(option);
+  });
+
+  const panel = document.getElementById("gt-suggestion-panel");
+  const toggle = document.getElementById("gt-suggestion-toggle");
+  const closePanel = () => {
+    panel.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+  };
+
+  toggle.addEventListener("click", () => {
+    panel.hidden = !panel.hidden;
+    toggle.setAttribute("aria-expanded", String(!panel.hidden));
+    if (!panel.hidden) {
+      const selectedDepartment = document.getElementById("gt-department-filter").value;
+      departmentSelect.value = selectedDepartment === "all" ? "" : selectedDepartment;
+    }
+  });
+  document.getElementById("gt-suggestion-close").addEventListener("click", closePanel);
+  document.getElementById("gt-suggestion-location").addEventListener("click", useLocationForSuggestion);
+  document.getElementById("gt-suggestion-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    submitSuggestion(closePanel);
+  });
+}
+
+function isInGuatemala(lat, lng) {
+  return lat >= 13.5 && lat <= 18 && lng >= -92.4 && lng <= -88.2;
+}
+
+function setSuggestionCoordinates(lat, lng) {
+  suggestionCoordinates = { lat, lng };
+  if (suggestionMarker) {
+    suggestionMarker.setLatLng([lat, lng]);
+  } else {
+    suggestionMarker = L.marker([lat, lng], { draggable: true }).addTo(map);
+    suggestionMarker.on("dragend", () => {
+      const point = suggestionMarker.getLatLng();
+      setSuggestionCoordinates(point.lat, point.lng);
+    });
+  }
+
+  document.getElementById("gt-suggestion-lat").textContent = lat.toFixed(6);
+  document.getElementById("gt-suggestion-lng").textContent = lng.toFixed(6);
+}
+
+function useLocationForSuggestion() {
+  if (!navigator.geolocation) {
+    showToast("No se pudo acceder a tu ubicación. Selecciona el punto en el mapa.");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const { latitude, longitude } = position.coords;
+      setSuggestionCoordinates(latitude, longitude);
+      map.setView([latitude, longitude], 13);
+      if (!isInGuatemala(latitude, longitude)) {
+        showToast("La ubicación está fuera de Guatemala. Selecciona un punto dentro del país.");
+      }
+    },
+    () => showToast("No se pudo obtener tu ubicación. Revisa el permiso o selecciona el punto en el mapa."),
+    { enableHighAccuracy: true, timeout: 10000 },
+  );
+}
+
+async function submitSuggestion(closePanel) {
+  const submitButton = document.getElementById("gt-suggestion-submit");
+  const honeypot = document.getElementById("gt-suggestion-web").value.trim();
+  if (honeypot) {
+    showToast("¡Gracias! Lo reviso pronto");
+    closePanel();
+    return;
+  }
+
+  const departamento_id = document.getElementById("gt-suggestion-department").value;
+  const nombre = document.getElementById("gt-suggestion-name").value.trim();
+  const comentario = document.getElementById("gt-suggestion-comment").value.trim();
+  if (!departamento_id || nombre.length < 3 || nombre.length > 120 || comentario.length > 500) {
+    showToast("Revisa el departamento, el nombre (3–120 caracteres) y el comentario (máx. 500).");
+    return;
+  }
+  if (!suggestionCoordinates || !isInGuatemala(suggestionCoordinates.lat, suggestionCoordinates.lng)) {
+    showToast("Selecciona en el mapa unas coordenadas válidas dentro de Guatemala.");
+    return;
+  }
+
+  submitButton.disabled = true;
+  try {
+    await enviarSugerencia({
+      departamento_id,
+      nombre,
+      lat: suggestionCoordinates.lat,
+      lng: suggestionCoordinates.lng,
+      comentario,
+    });
+    showToast("¡Gracias! Lo reviso pronto");
+  } catch (error) {
+    console.error("No se pudo enviar la sugerencia:", error);
+    showToast(`No se pudo enviar la sugerencia. ${error.message}`);
+  } finally {
+    submitButton.disabled = false;
+    closePanel();
+  }
 }
 
 function resetAll() {
