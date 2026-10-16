@@ -28,6 +28,7 @@ let suggestionCoordinates = null;
 let toastTimer = null;
 let leafletPromise = null;
 let currentUser = null;
+let syncedUserId = null;
 let authSyncVersion = 0;
 let idMapPromise = null;
 const pendingSiteUpdates = new Set();
@@ -91,35 +92,16 @@ async function migrateVisitedIds() {
   const legacyIds = Array.from(visited).filter((siteId) => /^[a-z]+-\d+$/.test(siteId));
   if (legacyIds.length === 0) return;
 
-  if (!idMapPromise) {
-    idMapPromise = fetch("mapa_ids.json").then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status} al cargar mapa_ids.json`);
-      return response.json();
-    });
-  }
-
   try {
-    const idMap = await idMapPromise;
-    const stableIdsByDepartment = new Map();
-    Object.values(idMap).forEach((stableId) => {
-      if (typeof stableId !== "string") return;
-      const separator = stableId.indexOf("-");
-      if (separator === -1) return;
-      const departmentId = stableId.slice(0, separator);
-      if (!stableIdsByDepartment.has(departmentId)) stableIdsByDepartment.set(departmentId, []);
-      stableIdsByDepartment.get(departmentId).push(stableId);
-    });
+    const idMap = await loadIdMap();
+    const stableIdsByDepartment = buildStableIdsByDepartment(idMap);
 
     let changed = false;
     const migrated = new Set();
     visited.forEach((siteId) => {
-      let stableId = idMap[siteId];
-      if (!stableId && /^[a-z]+-\d+$/.test(siteId)) {
-        const [departmentId, indexText] = siteId.split("-");
-        stableId = stableIdsByDepartment.get(departmentId)?.[Number(indexText)];
-      }
-      migrated.add(stableId || siteId);
-      if (stableId && stableId !== siteId) changed = true;
+      const stableId = translateSiteId(siteId, idMap, stableIdsByDepartment);
+      migrated.add(stableId);
+      if (stableId !== siteId) changed = true;
     });
 
     if (changed) {
@@ -131,13 +113,48 @@ async function migrateVisitedIds() {
   }
 }
 
+function loadIdMap() {
+  if (!idMapPromise) {
+    idMapPromise = fetch("mapa_ids.json").then((response) => {
+      if (!response.ok) throw new Error(`HTTP ${response.status} al cargar mapa_ids.json`);
+      return response.json();
+    });
+  }
+  return idMapPromise;
+}
+
+function buildStableIdsByDepartment(idMap) {
+  const stableIdsByDepartment = new Map();
+  Object.values(idMap).forEach((stableId) => {
+    if (typeof stableId !== "string") return;
+    const separator = stableId.indexOf("-");
+    if (separator === -1) return;
+    const departmentId = stableId.slice(0, separator);
+    if (!stableIdsByDepartment.has(departmentId)) stableIdsByDepartment.set(departmentId, []);
+    stableIdsByDepartment.get(departmentId).push(stableId);
+  });
+  return stableIdsByDepartment;
+}
+
+function translateSiteId(siteId, idMap, stableIdsByDepartment) {
+  const directMatch = idMap[siteId];
+  if (typeof directMatch === "string") return directMatch;
+
+  if (/^[a-z]+-\d+$/.test(siteId)) {
+    const [departmentId, indexText] = siteId.split("-");
+    const stableId = stableIdsByDepartment.get(departmentId)?.[Number(indexText)];
+    if (stableId) return stableId;
+  }
+  return siteId;
+}
+
 function siteCount() {
   return DEPARTAMENTOS.reduce((total, dept) => total + dept.sites.length, 0);
 }
 
 function updateHeader() {
   const totalSites = siteCount();
-  const totalVisited = visited.size;
+  const totalVisited = Array.from(visited).filter((siteId) => sitesById.has(siteId)).length;
   const pct = totalSites ? Math.round((totalVisited / totalSites) * 100) : 0;
   const completedDepts = DEPARTAMENTOS.filter((dept) => (
     dept.sites.length > 0 && dept.sites.every((site) => visited.has(site.id))
@@ -170,6 +187,7 @@ function updateAuthUI(user) {
 
 async function syncVisitsForUser(user) {
   const syncVersion = ++authSyncVersion;
+  const isFirstSync = syncedUserId !== user.id;
   const { data, error } = await sb
     .from("visitas")
     .select("sitio_id")
@@ -178,13 +196,23 @@ async function syncVisitsForUser(user) {
   if (error) throw error;
   if (syncVersion !== authSyncVersion || currentUser?.id !== user.id) return;
 
-  const cloudIds = new Set((data || []).map((row) => row.sitio_id));
-  const localIds = new Set(visited);
-  const localOnlyRows = Array.from(localIds)
-    .filter((siteId) => !cloudIds.has(siteId))
-    .map((sitio_id) => ({ user_id: user.id, sitio_id }));
+  const idMap = await loadIdMap();
+  if (syncVersion !== authSyncVersion || currentUser?.id !== user.id) return;
+  const stableIdsByDepartment = buildStableIdsByDepartment(idMap);
+  const validSiteIds = new Set(sitesById.keys());
+  const translateAndFilter = (ids) => new Set(
+    Array.from(ids, (siteId) => translateSiteId(siteId, idMap, stableIdsByDepartment))
+      .filter((siteId) => validSiteIds.has(siteId)),
+  );
+  const cloudIds = translateAndFilter((data || []).map((row) => row.sitio_id));
+  const localIds = translateAndFilter(visited);
+  const localOnlyRows = isFirstSync
+    ? Array.from(localIds)
+      .filter((siteId) => !cloudIds.has(siteId))
+      .map((sitio_id) => ({ user_id: user.id, sitio_id }))
+    : [];
 
-  visited = new Set([...cloudIds, ...localIds]);
+  visited = isFirstSync ? new Set([...cloudIds, ...localIds]) : cloudIds;
   saveVisited();
   refreshProgressUI();
 
@@ -197,6 +225,7 @@ async function syncVisitsForUser(user) {
       });
     if (uploadError) throw uploadError;
   }
+  syncedUserId = user.id;
 }
 
 async function handleAuthStateChange(event, session) {
@@ -206,6 +235,7 @@ async function handleAuthStateChange(event, session) {
     if (event === "SIGNED_OUT") {
       authSyncVersion += 1;
       currentUser = null;
+      syncedUserId = null;
       visited.clear();
       try {
         localStorage.removeItem(STORAGE_KEY);
@@ -227,6 +257,8 @@ async function handleAuthStateChange(event, session) {
   }
   currentUser = user;
   updateAuthUI(user);
+
+  if (user.id === syncedUserId) return;
 
   try {
     await syncVisitsForUser(user);
@@ -346,9 +378,12 @@ function buildPopup(site) {
   updateButtonLabel();
   button.addEventListener("click", async () => {
     button.disabled = true;
-    await toggleSite(site.id);
-    updateButtonLabel();
-    button.disabled = false;
+    try {
+      await toggleSite(site.id);
+      updateButtonLabel();
+    } finally {
+      button.disabled = false;
+    }
   });
 
   const link = document.createElement("a");
@@ -415,7 +450,7 @@ function addDepartmentOptions() {
   });
 }
 
-function applyFilters() {
+function applyFilters(recenter = false) {
   if (!map) return;
 
   const selectedDepartment = document.getElementById("gt-department-filter").value;
@@ -438,13 +473,15 @@ function applyFilters() {
     });
   });
 
-  if (visibleMarkers.length > 1) {
-    const bounds = L.latLngBounds(visibleMarkers.map((marker) => marker.getLatLng()));
-    map.fitBounds(bounds, { padding: [28, 28], maxZoom: 12 });
-  } else if (visibleMarkers.length === 1) {
-    map.setView(visibleMarkers[0].getLatLng(), 11);
-  } else {
-    map.setView([15.7835, -90.2308], 7);
+  if (recenter) {
+    if (visibleMarkers.length > 1) {
+      const bounds = L.latLngBounds(visibleMarkers.map((marker) => marker.getLatLng()));
+      map.fitBounds(bounds, { padding: [28, 28], maxZoom: 12 });
+    } else if (visibleMarkers.length === 1) {
+      map.setView(visibleMarkers[0].getLatLng(), 11);
+    } else {
+      map.setView([15.7835, -90.2308], 7);
+    }
   }
 
   if (userCoordinates) renderNearbySites(userCoordinates);
@@ -576,7 +613,7 @@ function locateNearbySites() {
           document.getElementById("gt-department-filter").value = closestDepartment.id;
         }
       }
-      applyFilters();
+      applyFilters(true);
       showToast(`Ubicación aproximada: ±${Math.round(position.coords.accuracy)} m`);
     },
     () => {
@@ -599,7 +636,7 @@ function disableNearbyLocation() {
   document.getElementById("gt-nearby-btn").textContent = "📍 Cerca de mí";
   document.getElementById("gt-department-filter").value = "all";
   document.getElementById("gt-pending-filter").checked = false;
-  applyFilters();
+  applyFilters(true);
 }
 
 function createMap() {
@@ -619,15 +656,15 @@ function createMap() {
 
   addDepartmentOptions();
   setupSuggestionForm();
-  document.getElementById("gt-department-filter").addEventListener("change", applyFilters);
-  document.getElementById("gt-pending-filter").addEventListener("change", applyFilters);
+  document.getElementById("gt-department-filter").addEventListener("change", () => applyFilters(true));
+  document.getElementById("gt-pending-filter").addEventListener("change", () => applyFilters(true));
   document.getElementById("gt-nearby-btn").addEventListener("click", locateNearbySites);
   map.on("click", (event) => {
     if (document.getElementById("gt-suggestion-panel").hidden) return;
     if (event.originalEvent.target.closest(".leaflet-marker-icon, .leaflet-control")) return;
     setSuggestionCoordinates(event.latlng.lat, event.latlng.lng);
   });
-  applyFilters();
+  applyFilters(true);
 }
 
 function setupSuggestionForm() {
