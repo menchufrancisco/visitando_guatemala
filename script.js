@@ -640,7 +640,7 @@ function disableNearbyLocation() {
 }
 
 function createMap() {
-  map = L.map("gt-leaflet-map").setView([15.7835, -90.2308], 7);
+  map = L.map("gt-leaflet-map").setView([15.7835, -90.2308], 8);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     maxZoom: 19,
@@ -664,7 +664,7 @@ function createMap() {
     if (event.originalEvent.target.closest(".leaflet-marker-icon, .leaflet-control")) return;
     setSuggestionCoordinates(event.latlng.lat, event.latlng.lng);
   });
-  applyFilters(true);
+  applyFilters();
 }
 
 function setupSuggestionForm() {
