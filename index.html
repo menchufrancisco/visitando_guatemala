@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explora Guatemala departamento por departamento. Marca los sitios turísticos que has visitado y rastrea tu progreso por los 22 departamentos.">
-  <meta property="og:title" content="Visitando Guatemala — Departamento por departamento">
-  <meta property="og:description" content="Marca los sitios turísticos que has visitado en cada departamento de Guatemala.">
+  <meta name="description" content="Explora los sitios turísticos de Guatemala en un mapa interactivo y registra los que ya visitaste.">
+  <meta property="og:title" content="Visitando Guatemala — Mapa turístico">
+  <meta property="og:description" content="Explora y marca los sitios turísticos de Guatemala que ya visitaste.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇬🇹</text></svg>">
   <title>Visitando Guatemala — Departamento por departamento</title>
@@ -16,7 +16,7 @@
     <header class="gt-header">
       <div class="gt-header-left">
         <h1 class="gt-title">Guatemala</h1>
-        <p class="gt-subtitle">Departamento por departamento · Marca los sitios que ya visitaste</p>
+        <p class="gt-subtitle">Explora Guatemala · Marca los sitios que ya visitaste</p>
       </div>
 
       <div class="gt-stat">
@@ -31,36 +31,33 @@
       </div>
     </header>
 
-    <div class="gt-layout" id="gt-main-view">
-      <div class="gt-map-card">
-        <svg id="gt-svg" role="img" aria-label="Mapa de los 22 departamentos de Guatemala"></svg>
-        <div class="gt-legend">
-          <span class="gt-legend-item"><span class="gt-swatch stone"></span> Sin visitar</span>
-          <span class="gt-legend-item"><span class="gt-swatch gold"></span> Algunos</span>
-          <span class="gt-legend-item"><span class="gt-swatch jade"></span> Completo</span>
-          <span class="gt-legend-hint">Haz clic en un departamento para explorar →</span>
-        </div>
+    <main>
+      <div class="gt-filters" aria-label="Filtros del mapa">
+        <label class="gt-department-filter">
+          <span>Departamento</span>
+          <select id="gt-department-filter">
+            <option value="all">Todos los departamentos</option>
+          </select>
+        </label>
+        <label class="gt-pending-filter">
+          <input id="gt-pending-filter" type="checkbox">
+          <span>Solo pendientes</span>
+        </label>
+        <button class="gt-nearby-btn" id="gt-nearby-btn" type="button">📍 Cerca de mí</button>
       </div>
 
-      <div class="gt-panel" id="gt-panel"></div>
-    </div>
-
-    <section class="gt-detail-view" id="gt-detail-view" aria-label="Detalle del departamento" hidden>
-      <button class="gt-back-btn" id="gt-back-btn" type="button">← Volver al mapa de Guatemala</button>
-      <div class="gt-detail-heading">
-        <div>
-          <p class="gt-detail-kicker">Explora el departamento</p>
-          <h2 class="gt-detail-title" id="gt-detail-title"></h2>
+      <section class="gt-map-card" aria-label="Mapa de sitios turísticos de Guatemala">
+        <div id="gt-leaflet-map" role="application" aria-label="Mapa interactivo con sitios turísticos de Guatemala"></div>
+        <div class="gt-map-legend" aria-label="Leyenda de marcadores">
+          <span><i class="gt-legend-pin pending"></i> Pendiente</span>
+          <span><i class="gt-legend-pin visited"></i> Visitado</span>
         </div>
-        <p class="gt-detail-progress" id="gt-detail-progress"></p>
-      </div>
-      <div class="gt-detail-layout">
-        <div class="gt-leaflet-card">
-          <div id="gt-leaflet-map" aria-label="Mapa de sitios turísticos del departamento"></div>
-        </div>
-        <div class="gt-detail-sites" id="gt-detail-sites"></div>
-      </div>
-    </section>
+      </section>
+      <section class="gt-nearby" id="gt-nearby" aria-live="polite" hidden>
+        <h2 class="gt-nearby-title">Sitios pendientes más cercanos</h2>
+        <ol class="gt-nearby-list" id="gt-nearby-list"></ol>
+      </section>
+    </main>
 
     <div class="gt-footer">
       <button class="gt-reset-btn" id="gt-reset">Reiniciar progreso</button>
