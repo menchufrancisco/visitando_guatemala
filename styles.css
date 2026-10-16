@@ -106,6 +106,47 @@ body {
   font-size: 12.5px;
 }
 
+.gt-auth {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.gt-auth-login,
+.gt-auth-logout {
+  min-height: 40px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  cursor: pointer;
+  font: 600 13px 'Space Grotesk', sans-serif;
+  transition: background 0.15s ease;
+}
+
+.gt-auth-login:hover,
+.gt-auth-logout:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.gt-auth-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.gt-auth-email {
+  max-width: min(28vw, 280px);
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .gt-bar-track {
   width: 190px;
   height: 8px;
@@ -582,6 +623,11 @@ body {
 
   .gt-stat-main { justify-content: flex-start; }
   .gt-bar-track { width: 100%; }
+  .gt-auth {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .gt-auth-email { max-width: 65vw; }
   .gt-filters { align-items: stretch; gap: 8px 14px; }
   .gt-department-filter { flex: 1 1 100%; }
   .gt-department-filter select { width: 100%; }

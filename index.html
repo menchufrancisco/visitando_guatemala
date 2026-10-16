@@ -29,6 +29,14 @@
           <div class="gt-bar-fill" id="gt-bar-fill"></div>
         </div>
       </div>
+
+      <div class="gt-auth" id="gt-auth">
+        <button class="gt-auth-login" id="gt-auth-login" type="button">Continuar con Google</button>
+        <div class="gt-auth-user" id="gt-auth-user" hidden>
+          <span class="gt-auth-email" id="gt-auth-email"></span>
+          <button class="gt-auth-logout" id="gt-auth-logout" type="button">Salir</button>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -112,6 +120,7 @@
   </div>
 
   <div class="gt-toast" id="gt-toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

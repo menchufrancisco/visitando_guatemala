@@ -1,5 +1,6 @@
 const SUPABASE_URL = "https://gdxegctxwjaywbhnjtzz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_iXl1-FcocRI0iR45rklr8g_w8uStkrx";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function enviarSugerencia({ departamento_id, nombre, lat, lng, comentario }) {
   const headers = { "apikey": SUPABASE_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" };
@@ -26,6 +27,10 @@ let suggestionMarker = null;
 let suggestionCoordinates = null;
 let toastTimer = null;
 let leafletPromise = null;
+let currentUser = null;
+let authSyncVersion = 0;
+let idMapPromise = null;
+const pendingSiteUpdates = new Set();
 
 const ICONS = {
   check: '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
@@ -82,6 +87,50 @@ function saveVisited() {
   }
 }
 
+async function migrateVisitedIds() {
+  const legacyIds = Array.from(visited).filter((siteId) => /^[a-z]+-\d+$/.test(siteId));
+  if (legacyIds.length === 0) return;
+
+  if (!idMapPromise) {
+    idMapPromise = fetch("mapa_ids.json").then((response) => {
+      if (!response.ok) throw new Error(`HTTP ${response.status} al cargar mapa_ids.json`);
+      return response.json();
+    });
+  }
+
+  try {
+    const idMap = await idMapPromise;
+    const stableIdsByDepartment = new Map();
+    Object.values(idMap).forEach((stableId) => {
+      if (typeof stableId !== "string") return;
+      const separator = stableId.indexOf("-");
+      if (separator === -1) return;
+      const departmentId = stableId.slice(0, separator);
+      if (!stableIdsByDepartment.has(departmentId)) stableIdsByDepartment.set(departmentId, []);
+      stableIdsByDepartment.get(departmentId).push(stableId);
+    });
+
+    let changed = false;
+    const migrated = new Set();
+    visited.forEach((siteId) => {
+      let stableId = idMap[siteId];
+      if (!stableId && /^[a-z]+-\d+$/.test(siteId)) {
+        const [departmentId, indexText] = siteId.split("-");
+        stableId = stableIdsByDepartment.get(departmentId)?.[Number(indexText)];
+      }
+      migrated.add(stableId || siteId);
+      if (stableId && stableId !== siteId) changed = true;
+    });
+
+    if (changed) {
+      visited = migrated;
+      saveVisited();
+    }
+  } catch (error) {
+    console.warn("No se pudo migrar los IDs del progreso guardado:", error);
+  }
+}
+
 function siteCount() {
   return DEPARTAMENTOS.reduce((total, dept) => total + dept.sites.length, 0);
 }
@@ -98,6 +147,128 @@ function updateHeader() {
   document.getElementById("gt-stat-label").textContent = "sitios";
   document.getElementById("gt-stat-depts").textContent = `${completedDepts} de 22 departamentos`;
   document.getElementById("gt-bar-fill").style.width = `${pct}%`;
+}
+
+function refreshProgressUI() {
+  markers.forEach((marker, siteId) => {
+    const site = sitesById.get(siteId);
+    if (site) marker.setIcon(markerIcon(site));
+  });
+  updateHeader();
+  if (userCoordinates) renderNearbySites(userCoordinates);
+  applyFilters();
+}
+
+function updateAuthUI(user) {
+  const loginButton = document.getElementById("gt-auth-login");
+  const userPanel = document.getElementById("gt-auth-user");
+  const email = document.getElementById("gt-auth-email");
+  loginButton.hidden = Boolean(user);
+  userPanel.hidden = !user;
+  email.textContent = user?.email || "";
+}
+
+async function syncVisitsForUser(user) {
+  const syncVersion = ++authSyncVersion;
+  const { data, error } = await sb
+    .from("visitas")
+    .select("sitio_id")
+    .eq("user_id", user.id);
+
+  if (error) throw error;
+  if (syncVersion !== authSyncVersion || currentUser?.id !== user.id) return;
+
+  const cloudIds = new Set((data || []).map((row) => row.sitio_id));
+  const localIds = new Set(visited);
+  const localOnlyRows = Array.from(localIds)
+    .filter((siteId) => !cloudIds.has(siteId))
+    .map((sitio_id) => ({ user_id: user.id, sitio_id }));
+
+  visited = new Set([...cloudIds, ...localIds]);
+  saveVisited();
+  refreshProgressUI();
+
+  if (localOnlyRows.length > 0) {
+    const { error: uploadError } = await sb
+      .from("visitas")
+      .upsert(localOnlyRows, {
+        onConflict: "user_id,sitio_id",
+        ignoreDuplicates: true,
+      });
+    if (uploadError) throw uploadError;
+  }
+}
+
+async function handleAuthStateChange(event, session) {
+  const user = session?.user || null;
+  if (!user) {
+    updateAuthUI(null);
+    if (event === "SIGNED_OUT") {
+      authSyncVersion += 1;
+      currentUser = null;
+      visited.clear();
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (error) {
+        console.warn("No se pudo borrar el progreso local:", error);
+      }
+      refreshProgressUI();
+    }
+    return;
+  }
+
+  if (currentUser && currentUser.id !== user.id) {
+    visited.clear();
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (error) {
+      console.warn("No se pudo borrar el progreso local de la cuenta anterior:", error);
+    }
+  }
+  currentUser = user;
+  updateAuthUI(user);
+
+  try {
+    await syncVisitsForUser(user);
+  } catch (error) {
+    console.error("No se pudo sincronizar las visitas:", error);
+    showToast(`No se pudo sincronizar el progreso: ${error.message || error}`);
+  }
+}
+
+function setupAuth() {
+  document.getElementById("gt-auth-login").addEventListener("click", async () => {
+    try {
+      const { error } = await sb.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: window.location.origin + window.location.pathname,
+        },
+      });
+      if (error) throw error;
+    } catch (error) {
+      console.error("No se pudo iniciar sesión con Google:", error);
+      showToast(`No se pudo iniciar sesión: ${error.message || error}`);
+    }
+  });
+  document.getElementById("gt-auth-logout").addEventListener("click", async () => {
+    try {
+      const { error } = await sb.auth.signOut();
+      if (error) throw error;
+    } catch (error) {
+      console.error("No se pudo cerrar sesión:", error);
+      showToast(`No se pudo cerrar sesión: ${error.message || error}`);
+    }
+  });
+
+  sb.auth.onAuthStateChange((event, session) => {
+    setTimeout(() => {
+      handleAuthStateChange(event, session).catch((error) => {
+        console.error("Error al procesar el estado de autenticación:", error);
+        showToast(`Error de autenticación: ${error.message || error}`);
+      });
+    }, 0);
+  });
 }
 
 async function loadData() {
@@ -173,9 +344,11 @@ function buildPopup(site) {
     button.textContent = visited.has(site.id) ? "✓ Visitado (quitar)" : "Marcar como visitado";
   };
   updateButtonLabel();
-  button.addEventListener("click", () => {
-    toggleSite(site.id);
+  button.addEventListener("click", async () => {
+    button.disabled = true;
+    await toggleSite(site.id);
     updateButtonLabel();
+    button.disabled = false;
   });
 
   const link = document.createElement("a");
@@ -188,8 +361,12 @@ function buildPopup(site) {
   return wrap;
 }
 
-function toggleSite(siteId) {
-  if (visited.has(siteId)) visited.delete(siteId);
+async function toggleSite(siteId) {
+  if (pendingSiteUpdates.has(siteId)) return;
+  pendingSiteUpdates.add(siteId);
+
+  const wasVisited = visited.has(siteId);
+  if (wasVisited) visited.delete(siteId);
   else visited.add(siteId);
 
   const site = sitesById.get(siteId);
@@ -202,6 +379,30 @@ function toggleSite(siteId) {
   updateHeader();
   if (userCoordinates) renderNearbySites(userCoordinates);
   applyFilters();
+
+  const user = currentUser;
+  if (!user) {
+    pendingSiteUpdates.delete(siteId);
+    return;
+  }
+
+  try {
+    const result = wasVisited
+      ? await sb.from("visitas").delete().eq("user_id", user.id).eq("sitio_id", siteId)
+      : await sb.from("visitas").insert({ sitio_id: siteId });
+    if (result.error) throw result.error;
+  } catch (error) {
+    console.error("No se pudo guardar el cambio de visita:", error);
+    if (currentUser?.id === user.id) {
+      if (wasVisited) visited.add(siteId);
+      else visited.delete(siteId);
+      saveVisited();
+      refreshProgressUI();
+    }
+    showToast(`No se pudo guardar el cambio: ${error.message || error}`);
+  } finally {
+    pendingSiteUpdates.delete(siteId);
+  }
 }
 
 function addDepartmentOptions() {
@@ -541,16 +742,23 @@ async function submitSuggestion(closePanel) {
   }
 }
 
-function resetAll() {
+async function resetAll() {
   if (!confirm("¿Borrar todo tu progreso? Esta acción no se puede deshacer.")) return;
+
+  const user = currentUser;
+  if (user) {
+    const { error } = await sb.from("visitas").delete().eq("user_id", user.id);
+    if (error) {
+      console.error("No se pudo borrar el progreso sincronizado:", error);
+      showToast(`No se pudo borrar el progreso: ${error.message}`);
+      return;
+    }
+    if (currentUser?.id !== user.id) return;
+  }
+
   visited.clear();
   saveVisited();
-  markers.forEach((marker, siteId) => {
-    const site = sitesById.get(siteId);
-    if (site) marker.setIcon(markerIcon(site));
-  });
-  updateHeader();
-  applyFilters();
+  refreshProgressUI();
 }
 
 function showLoadError(message) {
@@ -560,13 +768,20 @@ function showLoadError(message) {
 
 async function init() {
   loadVisited();
+  await migrateVisitedIds();
   document.getElementById("gt-reset").innerHTML = `${ICONS.reset} Reiniciar progreso`;
-  document.getElementById("gt-reset").addEventListener("click", resetAll);
+  document.getElementById("gt-reset").addEventListener("click", () => {
+    resetAll().catch((error) => {
+      console.error("No se pudo reiniciar el progreso:", error);
+      showToast(`No se pudo reiniciar el progreso: ${error.message || error}`);
+    });
+  });
 
   try {
     await Promise.all([loadData(), loadLeaflet()]);
     createMap();
     updateHeader();
+    setupAuth();
     requestAnimationFrame(() => map.invalidateSize());
   } catch (error) {
     console.error("No se pudo iniciar el mapa:", error);
