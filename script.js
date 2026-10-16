@@ -7,6 +7,7 @@ let visited = new Set();
 let map = null;
 let userLocationCircle = null;
 let userCoordinates = null;
+let locationActive = false;
 let toastTimer = null;
 let leafletPromise = null;
 
@@ -298,6 +299,11 @@ function renderNearbySites(position) {
 }
 
 function locateNearbySites() {
+  if (locationActive) {
+    disableNearbyLocation();
+    return;
+  }
+
   if (!navigator.geolocation) {
     showToast("Se necesita permiso de ubicación para encontrar sitios cercanos.");
     return;
@@ -309,7 +315,7 @@ function locateNearbySites() {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       };
-      map.setView([userCoordinates.lat, userCoordinates.lng], 11);
+      locationActive = true;
 
       if (userLocationCircle) {
         userLocationCircle.setLatLng([userCoordinates.lat, userCoordinates.lng]);
@@ -323,13 +329,56 @@ function locateNearbySites() {
         }).addTo(map);
       }
 
-      renderNearbySites(userCoordinates);
+      const selectedDepartment = document.getElementById("gt-department-filter").value;
+      const closestSite = DEPARTAMENTOS
+        .filter((dept) => selectedDepartment === "all" || dept.id === selectedDepartment)
+        .flatMap((dept) => dept.sites)
+        .filter(hasValidCoordinates)
+        .map((site) => ({
+          site,
+          distance: haversineDistance(
+            userCoordinates.lat,
+            userCoordinates.lng,
+            Number(site.lat),
+            Number(site.lng),
+          ),
+        }))
+        .sort((a, b) => a.distance - b.distance)[0];
+
+      const button = document.getElementById("gt-nearby-btn");
+      button.textContent = "✕ Quitar ubicación";
+      if (closestSite) {
+        const closestDepartment = DEPARTAMENTOS.find((dept) => (
+          dept.sites.some((site) => site.id === closestSite.site.id)
+        ));
+        if (closestDepartment) {
+          document.getElementById("gt-department-filter").value = closestDepartment.id;
+        }
+      }
+      applyFilters();
+      showToast(`Ubicación aproximada: ±${Math.round(position.coords.accuracy)} m`);
     },
     () => {
       showToast("Se necesita permiso de ubicación para encontrar sitios cercanos. Revisa el permiso e inténtalo de nuevo.");
     },
-    { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 },
+    { enableHighAccuracy: true, timeout: 10000 },
   );
+}
+
+function disableNearbyLocation() {
+  locationActive = false;
+  userCoordinates = null;
+  if (userLocationCircle) {
+    map.removeLayer(userLocationCircle);
+    userLocationCircle = null;
+  }
+
+  document.getElementById("gt-nearby").hidden = true;
+  document.getElementById("gt-nearby-list").replaceChildren();
+  document.getElementById("gt-nearby-btn").textContent = "📍 Cerca de mí";
+  document.getElementById("gt-department-filter").value = "all";
+  document.getElementById("gt-pending-filter").checked = false;
+  applyFilters();
 }
 
 function createMap() {
