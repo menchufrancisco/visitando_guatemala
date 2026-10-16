@@ -196,7 +196,10 @@ async function syncVisitsForUser(user) {
   if (error) throw error;
   if (syncVersion !== authSyncVersion || currentUser?.id !== user.id) return;
 
-  const idMap = await loadIdMap();
+  const cloudSiteIds = (data || []).map((row) => row.sitio_id);
+  const hasLegacyIds = [...visited, ...cloudSiteIds]
+    .some((siteId) => /^[a-z]+-\d+$/.test(siteId));
+  const idMap = hasLegacyIds ? await loadIdMap() : {};
   if (syncVersion !== authSyncVersion || currentUser?.id !== user.id) return;
   const stableIdsByDepartment = buildStableIdsByDepartment(idMap);
   const validSiteIds = new Set(sitesById.keys());
@@ -204,7 +207,7 @@ async function syncVisitsForUser(user) {
     Array.from(ids, (siteId) => translateSiteId(siteId, idMap, stableIdsByDepartment))
       .filter((siteId) => validSiteIds.has(siteId)),
   );
-  const cloudIds = translateAndFilter((data || []).map((row) => row.sitio_id));
+  const cloudIds = translateAndFilter(cloudSiteIds);
   const localIds = translateAndFilter(visited);
   const localOnlyRows = isFirstSync
     ? Array.from(localIds)
@@ -806,6 +809,7 @@ function showLoadError(message) {
 async function init() {
   loadVisited();
   await migrateVisitedIds();
+  setupHeaderCollapse();
   document.getElementById("gt-reset").innerHTML = `${ICONS.reset} Reiniciar progreso`;
   document.getElementById("gt-reset").addEventListener("click", () => {
     resetAll().catch((error) => {
@@ -824,6 +828,28 @@ async function init() {
     console.error("No se pudo iniciar el mapa:", error);
     showLoadError("No se pudo cargar el mapa o los sitios. Revisa tu conexión e intenta recargar la página.");
   }
+}
+
+function setupHeaderCollapse() {
+  const header = document.querySelector(".gt-header");
+  const button = document.getElementById("gt-header-toggle");
+  const mobileQuery = window.matchMedia("(max-width: 640px)");
+
+  const syncForViewport = () => {
+    header.classList.toggle("is-collapsed", mobileQuery.matches);
+    button.setAttribute("aria-expanded", String(!mobileQuery.matches));
+    button.setAttribute("aria-label", mobileQuery.matches ? "Expandir panel" : "Contraer panel");
+    button.textContent = mobileQuery.matches ? "⌃" : "⌄";
+  };
+
+  button.addEventListener("click", () => {
+    const collapsed = header.classList.toggle("is-collapsed");
+    button.setAttribute("aria-expanded", String(!collapsed));
+    button.setAttribute("aria-label", collapsed ? "Expandir panel" : "Contraer panel");
+    button.textContent = collapsed ? "⌃" : "⌄";
+  });
+  mobileQuery.addEventListener("change", syncForViewport);
+  syncForViewport();
 }
 
 document.addEventListener("DOMContentLoaded", init);
