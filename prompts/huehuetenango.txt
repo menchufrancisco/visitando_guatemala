@@ -1,0 +1,33 @@
+Departamento: Huehuetenango (Guatemala). departamento_id: huehuetenango
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+huehuetenango,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Cascada de Pojom
+- Cenotes de Candelaria
+- Centro Ceremonial Q'anil
+- Chiabal (Llamas de los Cuchumatanes)
+- Cueva de Ixtenam
+- Finca y Ruinas de Chaculá
+- Hoyo de El Cimarrón
+- Laguna Brava (Yolnabaj)
+- Laguna Magdalena
+- Laguna Maxbal
+- Mapa en Relieve de Huehuetenango
+- Mirador Juan Diéguez Olaverri
+- Montaña Peña Blanca
+- Nacimiento del Río San Juan
+- Parque Arqueológico Zaculeu
+- Parroquia y Virgen de Plata
+- Posada Unicornio Azul
+- Río Blanco
+- Río Serchil
+- San Juan Ixcoy
+- San Mateo Ixtatán
+- Templo Minerva
+- Todos Santos Cuchumatán

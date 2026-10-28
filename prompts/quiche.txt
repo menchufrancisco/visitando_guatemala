@@ -1,0 +1,29 @@
+Departamento: Quiché (Guatemala). departamento_id: quiche
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+quiche,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Aldea y Laguna de Acul
+- Arco de Gucumatz
+- Balneario Pachitac
+- Biotopo Chitinimit
+- Canillá
+- Cascada de Chichel
+- Cascadas de Batzchocolá
+- Cerro Pascual Abaj
+- Chajul y Cotzal
+- Hacienda Mil Amores
+- Iglesia de Santo Tomás
+- Joyabaj (Palo Volador)
+- Laguna de Lemoa
+- Mercado de Chichicastenango
+- Museo Arqueológico Rossbach
+- Nebaj (Triángulo Ixil)
+- Ruinas de Q'umarkaj (Utatlán)
+- Sacapulas (Pozas Termales)
+- Uspantán

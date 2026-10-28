@@ -1,0 +1,42 @@
+Departamento: Petén (Guatemala). departamento_id: peten
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+peten,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Aguateca
+- Biotopo Cerro Cahuí
+- Biotopo El Zotz
+- Cráter Azul
+- Cuevas de Actún Can
+- Cuevas de Naj Tunich
+- El Remate
+- Estación Biológica Las Guacamayas
+- Finca Ixobel
+- Isla de Flores
+- Laguna de Petexbatún
+- Nakum
+- Parque Nacional Ceibal
+- Parque Nacional El Mirador
+- Parque Nacional Laguna del Tigre
+- Parque Nacional Sierra del Lacandón
+- Parque Nacional Tikal
+- Parque Nacional Yaxhá-Nakum-Naranjo
+- Parque Natural Ixpanpajul
+- Refugio de Vida Silvestre El Pucté
+- Río Azul
+- San Bartolo
+- Sitio Arqueológico Cancuén
+- Sitio Arqueológico Dos Pilas
+- Sitio Arqueológico El Perú (Waka')
+- Sitio Arqueológico Ixlú
+- Sitio Arqueológico La Corona
+- Sitio Arqueológico Piedras Negras
+- Sitio Arqueológico Tamarindito
+- Sitio Arqueológico Topoxté
+- Tayasal
+- Uaxactún

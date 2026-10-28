@@ -1,0 +1,25 @@
+Departamento: Totonicapán (Guatemala). departamento_id: totonicapan
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+totonicapan,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Astillero Municipal de Totonicapán
+- Baños Termales Nueve Ojos
+- Baños Termales Pahracan
+- Baños Termales Palá
+- Cerro Alto Abaj
+- Cuevas de San Miguel
+- Cumbres de María Tecún
+- Fuentes Termales Chupachinto
+- Iglesia de San Andrés Xecul
+- Mercado de San Francisco El Alto
+- Riscos de Momostenango
+- San Cristóbal Totonicapán
+- Sendero Ecológico El Aprisco
+- Talleres de Artesanías de Lana
+- Tanque Los Dragones

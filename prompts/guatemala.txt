@@ -1,0 +1,39 @@
+Departamento: Guatemala (Guatemala). departamento_id: guatemala
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+guatemala,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Castillo de Dorión
+- Centro Histórico y Plaza de la Constitución
+- Cerrito del Carmen
+- Chuarrancho
+- Ciudad Cayalá
+- IRTRA Mundo Petapa
+- IRTRA Petapa
+- Lago de Amatitlán
+- Mapa en Relieve
+- Mapa en Relieve de Guatemala
+- Mercado Central
+- Mercado de Artesanías
+- Museo Miraflores
+- Museo Nacional de Arqueología y Etnología
+- Museo Popol Vuh e Ixchel
+- Museo del Ferrocarril
+- Parque Ecológico Kanajuyú
+- Parque Ecológico La Ciénaga
+- Parque Ecológico Senderos de Alux
+- Parque Nacional Naciones Unidas
+- Paseo de la Sexta
+- San Juan Sacatepéquez
+- San Raymundo
+- Santa Catarina Pinula
+- Santa Teresita Thermal Spa
+- Sitio Arqueológico Kaminaljuyú
+- Teatro Nacional (Centro Cultural Miguel Ángel Asturias)
+- Torre del Reformador
+- Zoológico La Aurora

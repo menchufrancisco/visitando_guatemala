@@ -1,0 +1,27 @@
+Departamento: Chimaltenango (Guatemala). departamento_id: chimaltenango
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+chimaltenango,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Balneario Ojo de Agua
+- Casa Xara
+- Corredor Gastronómico Tecpán
+- Cueva del Diablo
+- El Tejar
+- Laguna Chichoy
+- Parque Nacional Los Aposentos
+- Parroquia Colonial de Chimaltenango
+- Parroquia de San Martín Jilotepeque
+- Paseo Xejasmin
+- Patzún
+- San Juan Comalapa
+- Santuario de San Simón
+- Sitio Arqueológico Iximché
+- Sitio Arqueológico Mixco Viejo
+- Volcán Acatenango
+- Zaragoza

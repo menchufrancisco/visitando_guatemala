@@ -1,0 +1,196 @@
+{
+ "izabal": {
+  "departamento": "Izabal",
+  "sitios": [
+   {
+    "id": "izabal-osmn2640345721",
+    "nombre": "Cueva Tigre",
+    "lat": 15.79298,
+    "lng": -88.80943,
+    "aprox": false
+   }
+  ]
+ },
+ "sanmarcos": {
+  "departamento": "San Marcos",
+  "sitios": []
+ },
+ "totonicapan": {
+  "departamento": "Totonicapán",
+  "sitios": []
+ },
+ "solola": {
+  "departamento": "Sololá",
+  "sitios": [
+   {
+    "id": "solola-osmn299724585",
+    "nombre": "Volcán San Pedro",
+    "lat": 14.65673,
+    "lng": -91.26503,
+    "aprox": false
+   },
+   {
+    "id": "solola-osmn299724826",
+    "nombre": "Volcán Tolimán",
+    "lat": 14.62049,
+    "lng": -91.18592,
+    "aprox": false
+   }
+  ]
+ },
+ "guatemala": {
+  "departamento": "Guatemala",
+  "sitios": [
+   {
+    "id": "guatemala-osmn7100668457",
+    "nombre": "Castillo de Dorión",
+    "lat": 14.48208,
+    "lng": -90.58753,
+    "aprox": false
+   },
+   {
+    "id": "guatemala-osmn11535110335",
+    "nombre": "Torre del Reformador",
+    "lat": 14.613,
+    "lng": -90.51662,
+    "aprox": false
+   },
+   {
+    "id": "guatemala-osmw52056817",
+    "nombre": "Museo Miraflores",
+    "lat": 14.6204,
+    "lng": -90.55424,
+    "aprox": false
+   },
+   {
+    "id": "guatemala-osmw93544931",
+    "nombre": "IRTRA Mundo Petapa",
+    "lat": 14.57485,
+    "lng": -90.54918,
+    "aprox": false
+   },
+   {
+    "id": "guatemala-osmw258156539",
+    "nombre": "Museo del Ferrocarril",
+    "lat": 14.62944,
+    "lng": -90.51165,
+    "aprox": false
+   },
+   {
+    "id": "guatemala-osmw1098138942",
+    "nombre": "Mapa en Relieve",
+    "lat": 14.66045,
+    "lng": -90.50861,
+    "aprox": false
+   }
+  ]
+ },
+ "elprogreso": {
+  "departamento": "El Progreso",
+  "sitios": []
+ },
+ "jutiapa": {
+  "departamento": "Jutiapa",
+  "sitios": [
+   {
+    "id": "jutiapa-osmn2601814929",
+    "nombre": "Volcán de Chingo",
+    "lat": 14.11802,
+    "lng": -89.72696,
+    "aprox": false
+   },
+   {
+    "id": "jutiapa-osmn4899844821",
+    "nombre": "Volcan Suchitán",
+    "lat": 14.39683,
+    "lng": -89.77642,
+    "aprox": false
+   },
+   {
+    "id": "jutiapa-osmn5371617192",
+    "nombre": "Volcán Las Víboras",
+    "lat": 14.21128,
+    "lng": -89.72666,
+    "aprox": false
+   },
+   {
+    "id": "jutiapa-osmn5991817917",
+    "nombre": "Volcán Ixtepeque",
+    "lat": 14.42476,
+    "lng": -89.68354,
+    "aprox": false
+   },
+   {
+    "id": "jutiapa-osmn6476804750",
+    "nombre": "Volcán Amayo",
+    "lat": 14.30719,
+    "lng": -89.99617,
+    "aprox": false
+   },
+   {
+    "id": "jutiapa-osmn6762897768",
+    "nombre": "Cerro Amatique",
+    "lat": 14.32951,
+    "lng": -89.61886,
+    "aprox": false
+   },
+   {
+    "id": "jutiapa-osmn13480351737",
+    "nombre": "Volcán Tahual",
+    "lat": 14.43659,
+    "lng": -89.90507,
+    "aprox": false
+   }
+  ]
+ },
+ "santarosa": {
+  "departamento": "Santa Rosa",
+  "sitios": [
+   {
+    "id": "santarosa-osmn1278569229",
+    "nombre": "Auto Safari Chapín",
+    "lat": 14.09886,
+    "lng": -90.6265,
+    "aprox": false
+   }
+  ]
+ },
+ "escuintla": {
+  "departamento": "Escuintla",
+  "sitios": [
+   {
+    "id": "escuintla-osmn1699412410",
+    "nombre": "Balberta",
+    "lat": 14.15835,
+    "lng": -90.93805,
+    "aprox": false
+   },
+   {
+    "id": "escuintla-osmn1699534317",
+    "nombre": "El Baúl",
+    "lat": 14.38064,
+    "lng": -91.01886,
+    "aprox": false
+   }
+  ]
+ },
+ "retalhuleu": {
+  "departamento": "Retalhuleu",
+  "sitios": [
+   {
+    "id": "retalhuleu-osmw192582581",
+    "nombre": "Tak'alik Ab'a",
+    "lat": 14.63775,
+    "lng": -91.7321,
+    "aprox": false
+   },
+   {
+    "id": "retalhuleu-osmw197109862",
+    "nombre": "Xetulul",
+    "lat": 14.59524,
+    "lng": -91.61308,
+    "aprox": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+Departamento: Quetzaltenango (Guatemala). departamento_id: quetzaltenango
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+quetzaltenango,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Baños Térmicos Los Vapores
+- Cantel
+- Centro Histórico de Xela
+- Cerro El Baúl
+- Cofradía de San Pascual Bailón
+- Fuentes Georginas
+- La Esperanza
+- Laguna de San Juan Ostuncalco
+- Los Baños de Almolonga
+- Museo del Ferrocarril de los Altos
+- Parque Natural Cerro Quiac
+- Pasaje Enríquez y Teatro Municipal
+- Salcajá (Iglesia San Jacinto)
+- Valparaíso
+- Volcán Chicabal y Laguna Chicabal
+- Volcán Lacandón
+- Volcán Santa María y Santiaguito
+- Volcán Siete Orejas
+- Zunil (Pueblo y Cofradía)

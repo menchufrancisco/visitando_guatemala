@@ -1,0 +1,37 @@
+Departamento: Alta Verapaz (Guatemala). departamento_id: altaverapaz
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+altaverapaz,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Balneario Chijul
+- Balneario El Manantial
+- Balneario Las Azufradas
+- Candelaria Lodge / Camposanto
+- Cascada de Chicajau
+- Cooperativa Chicoj (Tour del Café)
+- Cueva de Chitul
+- Cueva de los Andinistas
+- Cuevas Bombil Pek
+- Cuevas de Candelaria
+- Cuevas de Lanquín
+- Cuevas de Rey Marcos
+- Cuevas de Setzol
+- Eco Centro Holanda
+- Finca Rax Tap
+- Laguna de Chichoj
+- Las Conchas
+- Museo Katinamit
+- Orquideario Archila
+- Parque Ecológico Chirrepec
+- Parque Ecológico Hun Nal Ye
+- Parque Nacional Laguna Lachuá
+- Pozo Vivo
+- Río Sachichá
+- Salto de Balam Ya
+- Semuc Champey
+- Sitio Arqueológico Chi Ixim

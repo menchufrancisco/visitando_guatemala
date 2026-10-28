@@ -1,0 +1,24 @@
+Departamento: Suchitepéquez (Guatemala). departamento_id: suchitepequez
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+suchitepequez,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Beneficio de Café Chocolá
+- Bulbaxyá
+- Chicacao
+- Cuyotenango
+- El Chorro del Carmen
+- Fachada de San Pablo Jocopilas
+- Mazatenango (Carnaval Mazateco)
+- Playa Chicago
+- Playa Tahuexco
+- Reserva Natural Los Tarrales
+- Río Ixtacapa
+- Samayac
+- San Antonio Suchitepéquez
+- Zunilito

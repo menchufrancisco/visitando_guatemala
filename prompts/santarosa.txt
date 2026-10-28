@@ -1,0 +1,27 @@
+Departamento: Santa Rosa (Guatemala). departamento_id: santarosa
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+santarosa,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Auto Safari Chapín
+- Barberena
+- Barra de Las Lisas
+- Biotopo Monterrico-Barra de El Jiote
+- Cataratas Los Amates
+- Guazacapán
+- Laguna El Pino (Barberena)
+- Laguna Ixpaco
+- Laguna de Ayarza
+- Playa El Chapetón
+- Playa Hawaii
+- Pueblo Nuevo Viñas
+- Puente de Los Esclavos
+- Reserva Natural Monterrico
+- San Rafael Las Flores
+- Volcán Cruz Quemada
+- Volcán Tecuamburro

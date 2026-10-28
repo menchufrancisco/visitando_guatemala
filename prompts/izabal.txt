@@ -1,0 +1,37 @@
+Departamento: Izabal (Guatemala). departamento_id: izabal
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+izabal,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Biotopo Chocón Machacas
+- Castillo de San Felipe de Lara
+- Cañón del Río Sauce
+- Chapín Abajo
+- Cueva Tigre
+- Cueva del Tigre
+- El Boquerón
+- Finca Paraíso
+- Finca Sachamach
+- Izabalito
+- Lago de Izabal
+- Laguna El Amatillo
+- Laguna Escondida
+- Livingston (Pueblo Garífuna)
+- Parque Arqueológico Quiriguá
+- Parque Municipal Chulaquito
+- Playa Blanca
+- Playa Dorada
+- Playa Quehueche
+- Punta Caimanes
+- Punta de Manabique
+- Punta de Palma
+- Refugio de Vida Silvestre Bocas del Polochic
+- Río Dulce
+- Río Zarco
+- Sendero Las Escobas
+- Siete Altares

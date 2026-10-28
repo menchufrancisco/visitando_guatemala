@@ -1,0 +1,28 @@
+Departamento: Escuintla (Guatemala). departamento_id: escuintla
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+escuintla,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Auto Safari Chapín
+- Balberta
+- Cascadas de San Pedro Mártir
+- El Baúl
+- Finca El Barretal
+- Iztapa
+- Marina Pez Vela
+- Mercado y Ceiba de Palín
+- Museo Las Ilusiones
+- Museo de La Democracia
+- Playa El Paredón
+- Playa Sipacate y Naranjo
+- Puerto San José y Chulamar
+- Santa Lucía Cotzumalguapa
+- Sitio Arqueológico El Baúl y Bilbao
+- Tiquisate
+- Volcán de Fuego
+- Volcán de Pacaya

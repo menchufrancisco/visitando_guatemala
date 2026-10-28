@@ -1,0 +1,24 @@
+Departamento: Jalapa (Guatemala). departamento_id: jalapa
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+jalapa,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Balneario Agua Tibia
+- Balneario Los Chorros
+- Cascadas de Tatasiriri
+- Cataratas de Urlanta
+- El Hoyo de Monjas
+- Laguna de Mataquesuintla
+- Laguna del Hoyo
+- Las Cuevas del Silvino
+- Parque Ecológico Pino Dulce
+- Quebrada El Salto
+- San Luis Jilotepeque
+- San Manuel Chaparrón
+- Volcán Alzatate
+- Volcán Jumay

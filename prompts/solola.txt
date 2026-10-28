@@ -1,0 +1,34 @@
+Departamento: Sololá (Guatemala). departamento_id: solola
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+solola,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Catarata de Panajachel
+- Cerro Tzankujil
+- Jaibalito
+- Lago de Atitlán
+- Mirador Kaqasiiwan
+- Mirador Rostro Maya (Rupalaj K'istalin)
+- Museo Lacustre Atitlán
+- Nahualá
+- Panajachel (Calle Santander)
+- Playa Las Cristalinas
+- Reserva Natural Atitlán
+- San Jorge La Laguna
+- San Juan La Laguna
+- San Lucas Tolimán
+- San Marcos La Laguna
+- San Pedro La Laguna
+- Santa Catarina Palopó
+- Santa Clara La Laguna
+- Santa Cruz La Laguna
+- Santiago Atitlán
+- Torre del Centro Cultural de Sololá
+- Volcán Atitlán y Tolimán
+- Volcán San Pedro
+- Volcán Tolimán

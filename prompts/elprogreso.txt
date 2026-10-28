@@ -1,0 +1,25 @@
+Departamento: El Progreso (Guatemala). departamento_id: elprogreso
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+elprogreso,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Antiguo Túnel Férreo
+- Balneario El Chilar
+- Balneario Pozas Los Plátanos
+- Cerro El Kiosco
+- Cerro El Pinalón
+- Parque Acuático Guastatoya
+- Parque Agua Caliente
+- Paseo del Rancho
+- Reserva Cerro Danto
+- Río Hato y El Rancho
+- San Cristóbal Acasaguastlán
+- Sanarate (Parque Central)
+- Sierra de las Minas
+- Sitio Arqueológico y Balneario Guaytán
+- Tumba de Guaytán

@@ -1,0 +1,31 @@
+Departamento: Jutiapa (Guatemala). departamento_id: jutiapa
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+jutiapa,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Asunción Mita (Sitio Arqueológico Benque)
+- Cerro Amatique
+- Comapa
+- Conguaco
+- Cueva y Turicentro Andá Mirá
+- D'Rocks Jutiapa
+- Lago de Güija
+- Laguna de Retana
+- Parque Central de Jutiapa
+- Playas de Pasaco
+- Turicentro Kayarí
+- Volcan Suchitán
+- Volcán Amayo
+- Volcán Chingo
+- Volcán Culma
+- Volcán Ixtepeque
+- Volcán Las Víboras
+- Volcán Tahual
+- Volcán de Chingo
+- Volcán de Suchitán
+- Volcán y Laguna de Moyuta

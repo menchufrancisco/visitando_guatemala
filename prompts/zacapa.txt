@@ -1,0 +1,24 @@
+Departamento: Zacapa (Guatemala). departamento_id: zacapa
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+zacapa,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Balneario El Silencio
+- Balneario Pasabién (Río Hondo)
+- Baños Termales de Santa Marta
+- Cascada Santa Rosalía Mármol
+- El Boquerón de Zacapa
+- Gualán
+- Montaña del Olvido
+- Museo Paleontológico Roberto Woolfolk
+- Parque Cabañas
+- Parque Central de Zacapa y Catedral
+- Río Hondo (Corredor de Turicentros)
+- San Diego
+- Sierra de las Minas (lado zacapaneco)
+- Teculután

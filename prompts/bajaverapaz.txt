@@ -1,0 +1,28 @@
+Departamento: Baja Verapaz (Guatemala). departamento_id: bajaverapaz
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+bajaverapaz,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Balneario Arroyo Verde
+- Balneario El Estribo
+- Biotopo del Quetzal (Mario Dary Rivera)
+- Cascada de San Antonio
+- Cataratas El Chupadero
+- Cerro de la Cruz de Salamá
+- Corredor del Bosque Nuboso
+- Embalse y Presa Chixoy
+- Finca Ranchitos del Quetzal
+- Iglesia y Convento de San Jerónimo
+- Museo del Trapiche
+- Posada Montaña del Quetzal
+- Rabinal (Centro Cultural)
+- Reserva Natural Ram Tzul
+- Salto de Chilascó
+- San Miguel Chicaj
+- Saqkiyaw
+- Sitio Arqueológico Kajyup

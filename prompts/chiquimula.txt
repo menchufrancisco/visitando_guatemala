@@ -1,0 +1,25 @@
+Departamento: Chiquimula (Guatemala). departamento_id: chiquimula
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+chiquimula,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Balneario Pasabién (San José La Arada)
+- Basílica del Santo Cristo de Esquipulas
+- Camotán y Jocotán
+- Cueva de las Minas
+- Laguna del Jute
+- Olopa
+- Paragliding Chiquimula
+- Parque de Aventura Chatún
+- Piedra de los Compadres
+- Poza de la Pila
+- Ruinas de la Parroquia Vieja
+- Sitio Histórico Batalla de La Arada
+- Volcán Monte Rico
+- Volcán Quezaltepeque
+- Volcán y Laguna de Ipala

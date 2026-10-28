@@ -1,0 +1,30 @@
+Departamento: Retalhuleu (Guatemala). departamento_id: retalhuleu
+
+Dame sitios turísticos reales y visitables de este departamento que NO estén en la lista de abajo (miradores, sitios arqueológicos, cascadas, volcanes, lagos, parques, museos, aguas termales, cuevas, reservas, pueblos con valor turístico). Hasta 30 sitios.
+
+Responde SOLO con filas CSV, sin encabezado, sin explicaciones, con este formato exacto:
+retalhuleu,Nombre del sitio
+
+Solo el nombre oficial o más conocido, sin coordenadas. No inventes: si no estás seguro de que exista, no lo incluyas.
+
+YA TENGO (no repetir):
+- Club Guayacán
+- Dino Park
+- Finca El Patrocinio
+- Hostales del IRTRA
+- Manchón Guamuchal
+- Museo Horacio Alejos León
+- Palacio Departamental de Retalhuleu
+- Parque Acuático Xocomil (IRTRA)
+- Parque Recreativo La Trinidad
+- Parque Temático Xetulul (IRTRA)
+- Playa El Aserreadero
+- Puerto y Playa de Champerico
+- San Andrés Villa Seca
+- San Felipe Retalhuleu
+- San Sebastián Retalhuleu
+- Santa Cruz Muluá (Casco Urbano)
+- Sitio Arqueológico Tak'alik Ab'aj
+- Tak'alik Ab'a
+- Xetulul
+- Xulik
