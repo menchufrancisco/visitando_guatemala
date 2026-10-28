@@ -1,3 +1,4 @@
+// Configuración del servicio y persistencia del progreso.
 const SUPABASE_URL = "https://gdxegctxwjaywbhnjtzz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_iXl1-FcocRI0iR45rklr8g_w8uStkrx";
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -12,7 +13,8 @@ async function enviarSugerencia({ departamento_id, nombre, lat, lng, comentario 
   if (!res.ok) throw new Error(`Error ${res.status}: ${await res.text()}`);
 }
 
-// Datos de departamentos cargados asíncronamente desde los archivos JSON.
+// Estado de la aplicación.
+// Los catálogos de departamentos se cargan desde JSON al iniciar.
 let DEPARTAMENTOS = [];
 let SUGGESTION_DEPARTMENTS = [];
 const STORAGE_KEY = "sitios-visitados-gt";
@@ -38,6 +40,7 @@ const ICONS = {
   reset: '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>',
 };
 
+// Interfaz y carga de recursos.
 function showToast(message) {
   const toast = document.getElementById("gt-toast");
   if (!toast) return;
@@ -164,6 +167,7 @@ function updateHeader() {
   document.getElementById("gt-stat-label").textContent = "sitios";
   document.getElementById("gt-stat-depts").textContent = `${completedDepts} de 22 departamentos`;
   document.getElementById("gt-bar-fill").style.width = `${pct}%`;
+  document.getElementById("gt-progress").setAttribute("aria-valuenow", String(pct));
 }
 
 function refreshProgressUI() {
@@ -185,6 +189,7 @@ function updateAuthUI(user) {
   email.textContent = user?.email || "";
 }
 
+// Autenticación y sincronización del progreso.
 async function syncVisitsForUser(user) {
   const syncVersion = ++authSyncVersion;
   const isFirstSync = syncedUserId !== user.id;
@@ -306,6 +311,7 @@ function setupAuth() {
   });
 }
 
+// Catálogos de departamentos y sitios.
 async function loadData() {
   const [deptsResponse, sitesResponse] = await Promise.all([
     fetch("departamentos.json"),
@@ -345,6 +351,7 @@ async function loadData() {
   });
 }
 
+// Mapa, filtros y exploración de sitios.
 function hasValidCoordinates(site) {
   return Number.isFinite(Number(site.lat)) && Number.isFinite(Number(site.lng))
     && Number(site.lat) >= -90 && Number(site.lat) <= 90
@@ -608,6 +615,7 @@ function locateNearbySites() {
 
       const button = document.getElementById("gt-nearby-btn");
       button.textContent = "✕ Quitar ubicación";
+      button.setAttribute("aria-pressed", "true");
       if (closestSite) {
         const closestDepartment = DEPARTAMENTOS.find((dept) => (
           dept.sites.some((site) => site.id === closestSite.site.id)
@@ -637,6 +645,7 @@ function disableNearbyLocation() {
   document.getElementById("gt-nearby").hidden = true;
   document.getElementById("gt-nearby-list").replaceChildren();
   document.getElementById("gt-nearby-btn").textContent = "📍 Cerca de mí";
+  document.getElementById("gt-nearby-btn").setAttribute("aria-pressed", "false");
   document.getElementById("gt-department-filter").value = "all";
   document.getElementById("gt-pending-filter").checked = false;
   applyFilters(true);
@@ -670,6 +679,7 @@ function createMap() {
   applyFilters();
 }
 
+// Formulario para proponer nuevos sitios.
 function setupSuggestionForm() {
   const departmentSelect = document.getElementById("gt-suggestion-department");
   SUGGESTION_DEPARTMENTS.forEach(({ id, name }) => {
@@ -773,15 +783,16 @@ async function submitSuggestion(closePanel) {
       comentario,
     });
     showToast("¡Gracias! Lo reviso pronto");
+    closePanel();
   } catch (error) {
     console.error("No se pudo enviar la sugerencia:", error);
     showToast(`No se pudo enviar la sugerencia. ${error.message}`);
   } finally {
     submitButton.disabled = false;
-    closePanel();
   }
 }
 
+// Acciones de progreso y arranque de la aplicación.
 async function resetAll() {
   if (!confirm("¿Borrar todo tu progreso? Esta acción no se puede deshacer.")) return;
 

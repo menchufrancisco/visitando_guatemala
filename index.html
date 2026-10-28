@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explora los sitios turísticos de Guatemala en un mapa interactivo y registra los que ya visitaste.">
+  <meta name="theme-color" content="#073b68">
+  <meta name="description" content="Explora Guatemala, descubre sitios turísticos en el mapa y lleva el registro de tus viajes por los 22 departamentos.">
   <meta property="og:title" content="Visitando Guatemala — Mapa turístico">
   <meta property="og:description" content="Explora y marca los sitios turísticos de Guatemala que ya visitaste.">
   <meta property="og:type" content="website">
@@ -19,13 +20,13 @@
         <p class="gt-subtitle">Explora Guatemala · Marca los sitios que ya visitaste</p>
       </div>
 
-      <div class="gt-stat">
+      <div class="gt-stat" aria-label="Progreso de visitas">
         <div class="gt-stat-main">
           <span class="gt-stat-num" id="gt-stat-num">0/0</span>
           <span class="gt-stat-label" id="gt-stat-label">sitios</span>
         </div>
         <div class="gt-stat-sub" id="gt-stat-depts">0 de 22 departamentos</div>
-        <div class="gt-bar-track">
+        <div class="gt-bar-track" role="progressbar" aria-label="Sitios turísticos visitados" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="gt-progress">
           <div class="gt-bar-fill" id="gt-bar-fill"></div>
         </div>
       </div>
@@ -41,7 +42,7 @@
     </header>
 
     <main>
-      <div class="gt-filters" aria-label="Filtros del mapa">
+      <div class="gt-filters" role="group" aria-label="Filtros del mapa">
         <label class="gt-department-filter">
           <span>Departamento</span>
           <select id="gt-department-filter">
@@ -52,14 +53,23 @@
           <input id="gt-pending-filter" type="checkbox">
           <span>Solo pendientes</span>
         </label>
-        <button class="gt-nearby-btn" id="gt-nearby-btn" type="button">📍 Cerca de mí</button>
+        <button class="gt-nearby-btn" id="gt-nearby-btn" type="button" aria-pressed="false">📍 Cerca de mí</button>
       </div>
 
-      <section class="gt-map-card" aria-label="Mapa de sitios turísticos de Guatemala">
-        <div id="gt-leaflet-map" role="application" aria-label="Mapa interactivo con sitios turísticos de Guatemala"></div>
-        <div class="gt-map-legend" aria-label="Leyenda de marcadores">
-          <span><i class="gt-legend-pin pending"></i> Pendiente</span>
-          <span><i class="gt-legend-pin visited"></i> Visitado</span>
+      <section class="gt-map-section" aria-label="Mapa de sitios turísticos de Guatemala">
+        <div class="gt-map-heading">
+          <div>
+            <p class="gt-eyebrow">Tu próxima aventura</p>
+            <h2>Descubre Guatemala</h2>
+          </div>
+          <p class="gt-map-help">Selecciona un marcador para ver detalles y cómo llegar.</p>
+        </div>
+        <div class="gt-map-card">
+          <div id="gt-leaflet-map" role="application" aria-label="Mapa interactivo con sitios turísticos de Guatemala"></div>
+          <div class="gt-map-legend" aria-label="Leyenda de marcadores">
+            <span><i class="gt-legend-pin pending"></i> Pendiente</span>
+            <span><i class="gt-legend-pin visited"></i> Visitado</span>
+          </div>
         </div>
       </section>
       <section class="gt-suggestion">
@@ -120,7 +130,7 @@
     </div>
   </div>
 
-  <div class="gt-toast" id="gt-toast"></div>
+  <div class="gt-toast" id="gt-toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <script src="script.js"></script>
 </body>
